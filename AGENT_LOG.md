@@ -12,6 +12,8 @@
 - 15:43 Clone worker again saw an outside writer: a Cursor "Agents Window" (opened 15:33) running docusaurus build/serve and editing config, styles, home page. (The AGENT.md and .git/config edits were mine: notes and the origin remote.) Worker made no changes. Escalated to the CEO.
 - 15:44 RESOLVED: the "outside writer" was the clone worker's original run, still going while its resumed copy ran. It committed d9bb397 (232 files, build OK, 67 old URLs kept). Not yet applied: Google Form link (contactFormUrl), dropping the cookie page. Next: per-post image layout (research running), then a fix-up pass.
 - Lesson: never resume a worker before confirming its previous run has stopped.
+- 15:58 Clone DONE (c1f7842 on top of d9bb397, the outside session's commit at 15:44). Build OK, 51 URLs + 5 categories preserved, per-post folders (D15). Open: contactFormUrl, legal pages text, old /wp-content/uploads image links. Proposed a squash before the first push (d9bb397 carries the now-deleted uploads/ images).
+- Next: CMS step (Decap config + OAuth worker) and CI (build on PR) once CEO pushes.
 - CEO round 2 → D9–D14. Waiting on repo URL. Events collection + Google Form link deferred to CMS step (clone worker unaware).
 - CEO answers recorded as D1–D8 in AGENT.md. Open: editor auth option (D5), GitHub repo creation (no `gh` locally).
 - Clone worker (2026-10-20): Docusaurus 3.10.2 (classic, JS, no docs plugin) scaffolded at repo root, dark theme tuned to the CMES palette, self-hosted Poppins/Lato (OFL).
@@ -23,3 +25,5 @@
   - Contact page: Google Form button from `contactFormUrl` in `src/data/site.json` (placeholder, TODO in README). `preferencies-de-cookies` dropped (301 to /); its link in the cookie policy is now plain text.
   - Dropped the `/wp-content/uploads/*` redirect: post images now get hashed asset URLs, so no simple DRY rule exists (open issue for hot-linked images).
   - Build OK (onBrokenLinks throw), 51/51 post URLs + 5 category pages verified; screenshots clone-home.png / clone-post.png refreshed. Committed locally, not pushed.
+- 16:05 Writer (D17): rewrote avis-legal, politica-de-privacitat, politica-de-cookies (Spanish, same slugs, dated 2026-10-20) for Cloudflare Pages + CF Web Analytics (no cookies), Google Forms/Gmail, FBME licences; dropped GA/Mailchimp/LucusHost/comments/cookie-banner text. Build OK, committed 086852c (pages only; AGENT*.md left uncommitted). Not pushed.
+  - To check: address "Carrer de Xaloc, s/n" (legal pages, kept) vs "Carrer de Xaloc, 27" (site.json); FBME as recipient; Google/Cloudflare transfer wording; CF Web Analytics must be enabled at deploy for the text to be true.

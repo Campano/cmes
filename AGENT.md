@@ -35,6 +35,15 @@ Non-technical editors → CMS changes go through PRs (Decap `editorial_workflow`
 | D13 | Bank account + board stay public | approved |
 | D5 | Editor auth: GitHub account per editor + OAuth proxy on Cloudflare | approved |
 | D15 | Media: one folder per post `blog/YYYY-MM-DD-slug/index.md` + images; Decap `path` + `media_folder: ''`; `parseFrontMatter` hook adds `./` to the front-matter image; shared images in static/img | approved |
+| D16 | contactFormUrl placeholder OK for now; old /wp-content/uploads links may break | approved |
+| D17 | Legal pages rewritten for the new stack (086852c); CEO/lawyer to review FBME, Google entity, retention | done |
+| Q1 | Club address: "Carrer de Xaloc, s/n" (legal pages) vs "27" (site.json)? | pending CEO |
+
+## Coordination rules (lessons)
+- Only one local agent writes to the repo at a time; never resume an agent until its previous run has clearly finished.
+- Long commands: adequate block_until_ms so nothing is silently backgrounded.
+- Agents commit locally only; CEO pushes.
+- Cloud Web Analytics must be enabled at deploy (the legal pages depend on it).
 | D14 | Repo: https://github.com/Campano/cmes (origin added). CEO pushes manually; agents commit locally only, never push | approved |
 
 ## Current site (from docs/audit.md)
