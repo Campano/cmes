@@ -72,9 +72,17 @@ module.exports = {
       logo: {alt: 'CMES', src: 'img/logo.png'},
       items: [
         {to: '/el-club/', label: 'El club'},
-        {type: 'dropdown', label: 'Seccions', items: site.sections},
+        {
+          type: 'dropdown',
+          label: 'Blog',
+          to: '/blog/',
+          items: [
+            {to: '/blog/', label: 'Totes les notícies'},
+            ...site.sections,
+            {to: '/actualitat/', label: 'Actualitat'},
+          ],
+        },
         {to: '/agenda/', label: 'Agenda'},
-        {to: '/calendari/', label: 'Calendari'},
         {to: '/local-social/', label: 'Local social'},
         {to: '/contacte/', label: 'Contacte'},
         {to: '/fes-te-soci/', label: 'Fes-te soci', position: 'right', className: 'navbar-cta'},
