@@ -1,0 +1,19 @@
+<!doctype html>
+<!-- translate="no": browser auto-translation rewrites the DOM under React and breaks the rich text editor. -->
+<html lang="ca" translate="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>CMES · Gestor de continguts</title>
+  <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+</head>
+<body>
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://unpkg.com/decap-cms@3.17.1/dist/decap-cms.js"
+    integrity="sha384-d2pbrhjc5asvSK35gKkrgRIk0Wq+2CQynWnXtSsYWQawXCgBXhcAK737jBAKXT4T"
+    crossorigin="anonymous"></script>
+  <!-- OAuth runs on this same origin (functions/api/), so it works on *.pages.dev and on the final domain. -->
+  <script>CMS.init({config: {backend: {base_url: location.origin}}});</script>
+</body>
+</html>

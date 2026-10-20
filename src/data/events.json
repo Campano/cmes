@@ -1,0 +1,48 @@
+{
+  "events": [
+    {
+      "title": "[PROVA] Escalada a sa Gubia",
+      "date": "2026-10-04",
+      "place": "Bunyola",
+      "section": "Escalada",
+      "description": "Jornada d'escalada esportiva per a tots els nivells. Cal dur casc i material propi."
+    },
+    {
+      "title": "[PROVA] Assemblea general de socis",
+      "date": "2026-10-16",
+      "place": "Local social, Port de Sóller",
+      "section": "Club",
+      "description": "Assemblea ordinària: balanç de la temporada i calendari de 2027."
+    },
+    {
+      "title": "[PROVA] Descens del torrent de Biniaraix",
+      "date": "2026-10-31",
+      "place": "Biniaraix, Sóller",
+      "section": "Barranquisme",
+      "description": "Barranc aquàtic de dificultat baixa. Imprescindible neoprè i saber nedar."
+    },
+    {
+      "title": "[PROVA] Sortida al Puig de l'Ofre",
+      "date": "2026-11-15",
+      "place": "Cúber, Escorca",
+      "section": "Senderisme",
+      "description": "Ruta circular de 12 km i 700 m de desnivell (dificultat 3). Sortida a les 8 h des de la plaça de Sóller."
+    },
+    {
+      "title": "[PROVA] Pujada al Puig Major",
+      "date": "2026-11-29",
+      "place": "Fornalutx",
+      "section": "Curses per muntanya",
+      "description": "Cursa de 15 km puntuable per a la Copa Balear. Inscripcions obertes fins al 25 de novembre.",
+      "link": "https://example.com/inscripcions-prova"
+    },
+    {
+      "title": "[PROVA] Estada d'escalada a Siurana",
+      "date": "2026-12-05",
+      "endDate": "2026-12-08",
+      "place": "Siurana, Priorat",
+      "section": "Escalada",
+      "description": "Pont de la Constitució escalant al Priorat. Places limitades; allotjament en refugi."
+    }
+  ]
+}
