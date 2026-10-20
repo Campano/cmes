@@ -30,7 +30,7 @@ collections:
     sortable_fields: [{field: date, default_sort: desc}, title]
     fields:
       - {label: Títol, name: title, widget: string}
-      - {label: Data, name: date, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ss'}
+      - {label: Data, name: date, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ss', default: '{{now}}'}
       - label: Categories
         name: tags
         widget: select
@@ -42,7 +42,7 @@ collections:
       - {label: Resum, name: description, widget: text, required: false, hint: Una o dues frases per a cercadors i xarxes socials.}
       # Existing posts keep their WordPress URL; new posts get it from the first category (docusaurus.config.js).
       - {label: Adreça, name: slug, widget: hidden}
-      - {label: Text, name: body, widget: markdown}
+      - {label: Text, name: body, widget: markdown, hint: 'La línia <!-- truncate --> marca on acaba el resum de la portada: no l''esborris.'}
 
   - name: events
     label: Agenda

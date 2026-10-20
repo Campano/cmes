@@ -32,3 +32,6 @@
   - OAuth: `functions/api/{auth,callback}.js` (~50 lines, state cookie, postMessage handshake). Unit-checked with mocked GitHub; real flow untested (needs CF + OAuth app).
   - Local test with decap-server: collections load, existing post edit preserves slug/date/image/truncate, events save → /agenda/ renders. Build OK. Not pushed.
   - Open: merge "Agenda" and "Calendari" nav items? OAuth app per domain; branch protection is what stops editors merging (CEO must enable).
+- 17:25 cms-debug: rich text editor NOT broken in Chromium (3.17.1, local backend): typing, bold/link/heading, image upload, Google-Docs paste, tables, `<!-- truncate -->` round-trip and save all OK, no console errors. Earlier "can't type" = automation artifact (synthetic keys skip Slate's native-insert path).
+  - Hardened: `translate="no"` on admin (browser auto-translate of the Catalan UI is the usual cause of Slate/React "removeChild/NotFoundError" crashes), date `default: '{{now}}'` (new posts failed to save with "Data és obligatori"), truncate hint on body. Build OK.
+  - Need from CEO: browser + exact symptom/console error if it still fails (Safari untested). Note: `markdown` widget is deprecated upstream (`richtext` is beta, drops soft line breaks #7816) → stay on `markdown` for now.
