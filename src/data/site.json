@@ -1,0 +1,21 @@
+{
+  "title": "CMES Club de Muntanya i Escalada Sóller",
+  "tagline": "Club de Muntanya i Escalada Sóller",
+  "email": "cmesoller@gmail.com",
+  "contactFormUrl": "https://forms.gle/TODO-contact-form",
+  "address": "Carrer de Xaloc, 27, 07108 Port de Sóller",
+  "nif": "G-57481228",
+  "bank": "Banc de Santander",
+  "iban": "ES26 0049 0176 2623 1024 6693",
+  "social": [
+    { "label": "Facebook", "href": "https://www.facebook.com/Club-Muntanya-Escalada-S%C3%B3ller-1904849869777193" },
+    { "label": "Twitter", "href": "https://twitter.com/cmes_soller" },
+    { "label": "Instagram", "href": "https://www.instagram.com/cmes_soller/" }
+  ],
+  "sections": [
+    { "label": "Barranquisme", "to": "/barranquisme/" },
+    { "label": "Curses per muntanya", "to": "/curses-per-muntanya/" },
+    { "label": "Escalada", "to": "/escalada/" },
+    { "label": "Senderisme", "to": "/senderisme/" }
+  ]
+}

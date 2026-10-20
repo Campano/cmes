@@ -1,0 +1,71 @@
+{
+  "theme.blog.archive.title": {
+    "message": "Totes les notícies"
+  },
+  "theme.blog.archive.description": {
+    "message": "Totes les notícies del CMES"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "Navegació de pàgines"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "Notícies més recents"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "Notícies anteriors"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "Navegació entre notícies"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "Notícia següent"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "Notícia anterior"
+  },
+  "theme.blog.post.readMore": {
+    "message": "Continuar llegint »"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "Continuar llegint {title}"
+  },
+  "theme.blog.post.plurals": {
+    "message": "Una notícia|{count} notícies"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{tagName}"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Darreres notícies"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "Seccions:"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "Totes les seccions"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "Enllaç directe a {heading}"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Saltar al contingut"
+  },
+  "theme.NotFound.title": {
+    "message": "Pàgina no trobada"
+  },
+  "theme.NotFound.p1": {
+    "message": "No hem trobat el que cercaves."
+  },
+  "theme.NotFound.p2": {
+    "message": "Torna a l'inici o contacta amb nosaltres si creus que és un error."
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "Aquesta pàgina ha fallat."
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Torna-ho a provar"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← Tornar al menú principal"
+  }
+}

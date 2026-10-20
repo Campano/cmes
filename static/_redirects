@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects for old WordPress URLs.
+/feed/                               /rss.xml               301
+/inici/                              /                      301
+/politica-de-privacidad/             /politica-de-privacitat/ 301
+/preferencies-de-cookies/            /                      301
