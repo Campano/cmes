@@ -14,6 +14,9 @@
 - Lesson: never resume a worker before confirming its previous run has stopped.
 - 15:58 Clone DONE (c1f7842 on top of d9bb397, the outside session's commit at 15:44). Build OK, 51 URLs + 5 categories preserved, per-post folders (D15). Open: contactFormUrl, legal pages text, old /wp-content/uploads image links. Proposed a squash before the first push (d9bb397 carries the now-deleted uploads/ images).
 - Next: CMS step (Decap config + OAuth worker) and CI (build on PR) once CEO pushes.
+- 16:18 CEO: run CMS + CI in parallel without waiting for a push; wants agents auditable as separate conversations. Cloud launch failed ("0 known git remotes" despite origin being set). Fallback: two local agents in isolated worktrees/branches: cms (91c9c71a), ci (993d6c62). They commit to their branches only; the CEO pushes and merges.
+- 16:23 CI done: branch ci/github-actions @15c64cd (ci.yml `build` job, dependabot monthly grouped, .nvmrc Node 24). To do: CEO pushes the branch + opens a PR; make `build` a required check after its first run; CF Pages build `npm run build` → `build`.
+- 16:36 CMS done on branch `cms` (973aa50): Decap via CDN, editorial_workflow, collections posts/pages/settings/events (/agenda/), OAuth as CF Pages Functions (53 lines). Auto URL /{first category}/{title slug}/. Untested: real OAuth, PR creation, image upload, rich-text body. Open: merge Agenda/Calendari nav, untruncated posts, repo public → public_repo scope. Waiting for ci (993d6c62) before the CEO reloads the window.
 - CEO round 2 → D9–D14. Waiting on repo URL. Events collection + Google Form link deferred to CMS step (clone worker unaware).
 - CEO answers recorded as D1–D8 in AGENT.md. Open: editor auth option (D5), GitHub repo creation (no `gh` locally).
 - Clone worker (2026-10-20): Docusaurus 3.10.2 (classic, JS, no docs plugin) scaffolded at repo root, dark theme tuned to the CMES palette, self-hosted Poppins/Lato (OFL).
