@@ -27,3 +27,8 @@
   - Build OK (onBrokenLinks throw), 51/51 post URLs + 5 category pages verified; screenshots clone-home.png / clone-post.png refreshed. Committed locally, not pushed.
 - 16:05 Writer (D17): rewrote avis-legal, politica-de-privacitat, politica-de-cookies (Spanish, same slugs, dated 2026-10-20) for Cloudflare Pages + CF Web Analytics (no cookies), Google Forms/Gmail, FBME licences; dropped GA/Mailchimp/LucusHost/comments/cookie-banner text. Build OK, committed 086852c (pages only; AGENT*.md left uncommitted). Not pushed.
   - To check: address "Carrer de Xaloc, s/n" (legal pages, kept) vs "Carrer de Xaloc, 27" (site.json); FBME as recipient; Google/Cloudflare transfer wording; CF Web Analytics must be enabled at deploy for the text to be true.
+- 16:40 CMS worker (branch `cms`): Decap 3.17.1 from unpkg (pinned + SRI) at /admin/, editorial_workflow, locale ca; collections posts (per-post folders, D15), events (D12, `src/data/events.json` → /agenda/ + nav), 9 pages (.mdx in raw mode so `<Site>` survives), settings (site.json).
+  - Slug: new posts get `/{first tag}/{folder slug}` in `parseFrontMatter`; the 51 existing slugs are kept (hidden field). `base_url` = `location.origin` in admin/index.html, so it works on *.pages.dev and the final domain.
+  - OAuth: `functions/api/{auth,callback}.js` (~50 lines, state cookie, postMessage handshake). Unit-checked with mocked GitHub; real flow untested (needs CF + OAuth app).
+  - Local test with decap-server: collections load, existing post edit preserves slug/date/image/truncate, events save → /agenda/ renders. Build OK. Not pushed.
+  - Open: merge "Agenda" and "Calendari" nav items? OAuth app per domain; branch protection is what stops editors merging (CEO must enable).

@@ -1,5 +1,9 @@
 // @ts-check
+const path = require('path');
 const site = require('./src/data/site.json');
+
+const slugify = (s) =>
+  s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 /** @type {import('@docusaurus/types').Config} */
 module.exports = {
@@ -13,12 +17,17 @@ module.exports = {
   markdown: {
     format: 'detect',
     hooks: {onBrokenMarkdownLinks: 'throw'},
-    // Decap writes a bare `image: cover.jpg`; Docusaurus only resolves co-located files with `./`.
     parseFrontMatter: async (params) => {
       const result = await params.defaultParseFrontMatter(params);
-      const {image} = result.frontMatter;
-      if (typeof image === 'string' && !/^(\.{0,2}\/|[a-z]+:)/i.test(image)) {
-        result.frontMatter.image = `./${image}`;
+      const fm = result.frontMatter;
+      // Decap writes a bare `image: cover.jpg`; Docusaurus only resolves co-located files with `./`.
+      if (typeof fm.image === 'string' && !/^(\.{0,2}\/|[a-z]+:)/i.test(fm.image)) {
+        fm.image = `./${fm.image}`;
+      }
+      // Posts without a slug get the WordPress-style URL /{first category}/{folder name without date}/.
+      const folder = path.relative(path.join(__dirname, 'blog'), path.dirname(params.filePath));
+      if (!fm.slug && fm.tags?.length && !folder.startsWith('..')) {
+        fm.slug = `/${slugify(fm.tags[0])}/${folder.replace(/^\d{4}-\d{2}-\d{2}-/, '')}`;
       }
       return result;
     },
@@ -64,6 +73,7 @@ module.exports = {
       items: [
         {to: '/el-club/', label: 'El club'},
         {type: 'dropdown', label: 'Seccions', items: site.sections},
+        {to: '/agenda/', label: 'Agenda'},
         {to: '/calendari/', label: 'Calendari'},
         {to: '/local-social/', label: 'Local social'},
         {to: '/contacte/', label: 'Contacte'},
