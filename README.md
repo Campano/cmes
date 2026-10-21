@@ -65,6 +65,11 @@ After every Sveltia upgrade, check the `sveltia-cms.user` session key: `/admin/`
 the CMS loads directly (no sign-in button). Save a test post and check the commit on `main`. **Tanca la sessió** → Cloudflare's
 logout page; opening `/admin/` again asks for a new code.
 `curl -i https://<site>/api/auth` and `curl -i https://<site>/api/token` must redirect to the Cloudflare login, never return a token.
+**If the sign-in screen still shows**, open `/api/token` in the logged-in browser; the reason after `Forbidden:` (also shown in the
+GitHub popup's "Accés denegat (…)") says what to fix: `no-env:<VAR>` var missing in Production (or not redeployed) · `no-jwt` the
+Access app doesn't cover `/api` · `bad-iss` wrong team domain (`cmes`, `cmes.cloudflareaccess.com` and `https://…/` all work) ·
+`bad-aud` wrong AUD tag (copy it from this Access app) · `certs-fetch` team domain unreachable · `expired` log in again ·
+`bad-jwt`/`bad-alg`/`bad-sig` forged or corrupt token · `not-same-origin` JWT is valid (expected when opened directly).
 
 **Security note**: the GitHub token reaches each editor's browser (that is how a git-based CMS works) and stays in its
 local storage until **Tanca la sessió**; `/api/token` only answers same-origin requests with a valid Access JWT and is never cached.
