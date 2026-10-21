@@ -36,8 +36,7 @@ GitHub login goes through two Cloudflare Pages Functions on the same site: `func
 **Local test** (writes straight to your working tree, no GitHub, no PRs):
 
 ```sh
-npx decap-server   # terminal 1, port 8081
-npm start          # terminal 2, then open http://localhost:3000/admin/
+npm run dev        # decap-server (port 8081) + site, then open http://localhost:3000/admin/
 ```
 
 **One-time setup (CEO)**
