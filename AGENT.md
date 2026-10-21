@@ -35,6 +35,8 @@ Non-technical editors → CMS changes go through PRs (Decap `editorial_workflow`
 | D13 | Bank account + board stay public | approved |
 | D5 | Editor auth: GitHub account per editor + OAuth proxy on Cloudflare | approved |
 | D15 | Media: one folder per post `blog/YYYY-MM-DD-slug/index.md` + images; Decap `path` + `media_folder: ''`; `parseFrontMatter` hook adds `./` to the front-matter image; shared images in static/img | approved |
+| D14b | Cloud agents may push their OWN branch and open a PR; never push/merge main | proposed |
+| D18 | CMS: switch Decap → Sveltia CMS (PR #1, sveltia branch) after a real GitHub login test on pages.dev | proposed |
 | D16 | contactFormUrl placeholder OK for now; old /wp-content/uploads links may break | approved |
 | D17 | Legal pages rewritten for the new stack (086852c); CEO/lawyer to review FBME, Google entity, retention | done |
 | Q1 | Club address: "Carrer de Xaloc, s/n" (legal pages) vs "27" (site.json)? | pending CEO |

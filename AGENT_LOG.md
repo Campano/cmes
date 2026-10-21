@@ -17,6 +17,10 @@
 - 16:18 CEO: run CMS + CI in parallel without waiting for a push; wants agents auditable as separate conversations. Cloud launch failed ("0 known git remotes" despite origin being set). Fallback: two local agents in isolated worktrees/branches: cms (91c9c71a), ci (993d6c62). They commit to their branches only; the CEO pushes and merges.
 - 16:23 CI done: branch ci/github-actions @15c64cd (ci.yml `build` job, dependabot monthly grouped, .nvmrc Node 24). To do: CEO pushes the branch + opens a PR; make `build` a required check after its first run; CF Pages build `npm run build` → `build`.
 - 16:36 CMS done on branch `cms` (973aa50): Decap via CDN, editorial_workflow, collections posts/pages/settings/events (/agenda/), OAuth as CF Pages Functions (53 lines). Auto URL /{first category}/{title slug}/. Untested: real OAuth, PR creation, image upload, rich-text body. Open: merge Agenda/Calendari nav, untruncated posts, repo public → public_repo scope. Waiting for ci (993d6c62) before the CEO reloads the window.
+## 2026-10-21
+- CEO merged cms + ci into local main (29742d3, 8 ahead of origin). Asked for push. Next: step 5, deploy to Cloudflare Pages (Git integration, *.pages.dev) + OAuth app + env vars + Web Analytics + branch protection, then test the real editorial workflow end to end.
+- 09:51 CEO pushed main and installed the Cursor GitHub app → cloud agents work. Launched cloud agent `sveltia` (bc-59f27119): evaluation branch + PR swapping Decap for Sveltia CMS.
+- 10:09 sveltia done → PR #1 (+45/−32, 9 files). Build OK. Recommends switching. Untested: real GitHub login/PR/publish, Safari/Firefox. Proposed D14b (cloud agents push own branches) + D18.
 - CEO round 2 → D9–D14. Waiting on repo URL. Events collection + Google Form link deferred to CMS step (clone worker unaware).
 - CEO answers recorded as D1–D8 in AGENT.md. Open: editor auth option (D5), GitHub repo creation (no `gh` locally).
 - Clone worker (2026-10-20): Docusaurus 3.10.2 (classic, JS, no docs plugin) scaffolded at repo root, dark theme tuned to the CMES palette, self-hosted Poppins/Lato (OFL).
