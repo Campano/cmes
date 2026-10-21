@@ -1,8 +1,8 @@
 # AGENT.md — Architect memory (source of truth)
 
 ## Mission
-Replace https://cmesoller.com/ with a Docusaurus site + Decap CMS.
-Non-technical editors → CMS changes go through PRs (Decap `editorial_workflow`).
+Replace https://cmesoller.com/ with a Docusaurus site + Sveltia CMS (Decap-compatible; was Decap until D18).
+Non-technical editors → CMS changes go through PRs (`editorial_workflow`).
 
 ## Principles
 - KISS, DRY, concise over perfectly custom.
@@ -45,6 +45,8 @@ Non-technical editors → CMS changes go through PRs (Decap `editorial_workflow`
 - Agents commit locally only; CEO pushes.
 - Cloud Web Analytics must be enabled at deploy (the legal pages depend on it).
 | D14 | Repo: https://github.com/Campano/cmes (origin added). CEO pushes manually; agents commit locally only, never push | approved |
+| D14b | Cloud agents may push their OWN branch and open a PR; only the CEO merges into main | approved |
+| D18 | CMS: Sveltia CMS replaces Decap (PR #1 https://github.com/Campano/cmes/pull/1). Real GitHub login tested at deploy | approved |
 
 ## Current site (from docs/audit.md)
 WordPress+Elementor Pro on LucusHost (shared, also DNS + mail). Registrar registrador.es, exp 2027-03-15.
