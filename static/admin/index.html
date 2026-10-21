@@ -10,8 +10,9 @@
 </head>
 <body>
   <script>window.CMS_MANUAL_INIT = true;</script>
-  <script src="https://unpkg.com/decap-cms@3.17.1/dist/decap-cms.js"
-    integrity="sha384-d2pbrhjc5asvSK35gKkrgRIk0Wq+2CQynWnXtSsYWQawXCgBXhcAK737jBAKXT4T"
+  <!-- SRI covers this file only; it lazy-loads its locale and chunk files from the same pinned version. -->
+  <script src="https://unpkg.com/@sveltia/cms@0.250.0/dist/sveltia-cms.js"
+    integrity="sha384-ZsKrJb+2fz2LQAmNGNALsLSBhiMyQEzAbodz2oj3+UYyp+OKIEwEJB259KvvZZo+"
     crossorigin="anonymous"></script>
   <!-- OAuth runs on this same origin (functions/api/), so it works on *.pages.dev and on the final domain. -->
   <script>CMS.init({config: {backend: {base_url: location.origin}}});</script>
