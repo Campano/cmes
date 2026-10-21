@@ -33,10 +33,13 @@ Editors use [Sveltia CMS](https://sveltiacms.app/) at `/admin/` (`static/admin/`
 **Desa** commits straight to `main` and the site redeploys in 1–2 minutes; the editor guide is [docs/guia-editors.md](docs/guia-editors.md).
 Safety nets: CI on every push, Cloudflare keeps serving the last good deployment if a build fails, and `git revert`.
 Editors need no GitHub account: [Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/applications/) (one-time PIN
-by email) protects `/admin/` and `/api/`. Then `functions/api/auth.js` checks the Access JWT again (signature, `aud`, `iss`, expiry)
-and hands the CMS a shared GitHub token through the Decap-compatible popup handshake.
+by email) protects `/admin/` and `/api/`. `/admin/index.html` then fetches a shared GitHub token from `functions/api/token.js`
+(same-origin only, never cached) and stores it as Sveltia's session, so the CMS opens without its own sign-in screen.
+Both `token.js` and the fallback **Inicia la sessió amb GitHub** popup (`functions/api/auth.js`) check the Access JWT again
+(signature, `aud`, `iss`, expiry). **Tanca la sessió** also logs out of Access.
 To upgrade Sveltia, bump the version in `static/admin/index.html` and recompute the SRI hash:
 `curl -sL <script URL> | openssl dgst -sha384 -binary | openssl base64 -A`.
+After every Sveltia upgrade, check the `sveltia-cms.user` session key: `/admin/` must still open without the sign-in button.
 
 **Local test** (writes straight to your working tree, no GitHub; Chrome/Edge only):
 `npm start`, open http://localhost:3000/admin/index.html → **Work with Local Repository** → pick the repo folder.
@@ -59,12 +62,15 @@ To upgrade Sveltia, bump the version in `static/admin/index.html` and recompute 
    direct pushes); CI stays informational. Keep "Block force pushes" and "Restrict deletions".
 
 **Manual test** (after deploy): in a private window open `/admin/` → Cloudflare asks for an email and a code →
-**Inicia la sessió amb GitHub** → the popup closes and the CMS loads. Save a test post and check the commit on `main`.
-`curl -i https://<site>/api/auth` must redirect to the Cloudflare login, never return a token.
+the CMS loads directly (no sign-in button). Save a test post and check the commit on `main`. **Tanca la sessió** → Cloudflare's
+logout page; opening `/admin/` again asks for a new code.
+`curl -i https://<site>/api/auth` and `curl -i https://<site>/api/token` must redirect to the Cloudflare login, never return a token.
 
 **Security note**: the GitHub token reaches each editor's browser (that is how a git-based CMS works) and stays in its
-local storage until **Tanca la sessió**. Removing an editor from the Access policy doesn't revoke a token they already
-loaded: rotate it then, and at least yearly (new token → update `GITHUB_TOKEN` → redeploy → delete the old one).
+local storage until **Tanca la sessió**; `/api/token` only answers same-origin requests with a valid Access JWT and is never cached.
+Removing an editor from the Access policy doesn't revoke a token they already loaded: rotate it then, and at least yearly
+(new token → update `GITHUB_TOKEN` → redeploy → delete the old one). Open CMS tabs pick up the new token on reload; with a
+revoked token and no new one, the CMS falls back to its sign-in screen with an error.
 Commits are authored by the token owner; Zero Trust → Logs → Access shows who logged in and when.
 
 TODO: replace the placeholder `contactFormUrl` in `src/data/site.json` with the real Google Form URL.

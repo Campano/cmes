@@ -6,6 +6,8 @@ backend:
   repo: Campano/cmes
   branch: main
   auth_endpoint: api/auth
+# "Tanca la sessió" also ends the Cloudflare Access session, otherwise reloading /admin/ signs straight back in.
+logout_redirect_url: /cdn-cgi/access/logout
 # UI language follows the browser (Catalan available, English fallback); no `locale` option.
 # Leave empty optional fields out: an empty `image` would become `./` in parseFrontMatter.
 output: {omit_empty_optional_fields: true}

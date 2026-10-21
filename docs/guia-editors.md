@@ -5,8 +5,9 @@
 1. Ves a `https://<web>/admin/`, escriu el teu correu i prem **Send me a code**.
 2. Copia el codi que t'arriba per correu i prem **Sign in**.
    Si no t'arriba, demana al responsable del web que afegeixi el teu correu.
-3. Prem **Inicia la sessió amb GitHub** (no cal cap compte de GitHub): la finestra emergent es tanca sola.
-4. Si el gestor no surt en català, obre el menú del compte (a dalt a la dreta) →
+   El gestor s'obre directament. Si mai hi veus el botó **Inicia la sessió amb GitHub**, torna a carregar la pàgina;
+   si continua sortint, avisa el responsable del web.
+3. Si el gestor no surt en català, obre el menú del compte (a dalt a la dreta) →
    **Configuració** → **Llengua** i tria **Català**.
 
 ## Crear o editar una notícia
@@ -37,4 +38,5 @@
 
 - Cada **Desa** publica directament: revisa el text abans de desar.
 - Per desfer un canvi, demana-ho al responsable del web (pot tornar a la versió anterior).
-- En un ordinador compartit, en acabar prem **Tanca la sessió** (menú del compte, a dalt a la dreta).
+- En un ordinador compartit, en acabar prem **Tanca la sessió** (menú del compte, a dalt a la dreta):
+  la propera vegada et tornarà a demanar el correu i el codi.
