@@ -2,7 +2,7 @@
 
 ## Mission
 Replace https://cmesoller.com/ with a Docusaurus site + Sveltia CMS (Decap-compatible; was Decap until D18).
-Non-technical editors → CMS changes go through PRs (`editorial_workflow`).
+Non-technical editors → CMS commits straight to main (D19), login via Cloudflare Access (D20).
 
 ## Principles
 - KISS, DRY, concise over perfectly custom.
@@ -39,6 +39,8 @@ Non-technical editors → CMS changes go through PRs (`editorial_workflow`).
 | D18 | CMS: switch Decap → Sveltia CMS (PR #1, sveltia branch) after a real GitHub login test on pages.dev | proposed |
 | D16 | contactFormUrl placeholder OK for now; old /wp-content/uploads links may break | approved |
 | D17 | Legal pages rewritten for the new stack (086852c); CEO/lawyer to review FBME, Google entity, retention | done |
+| D19 | CMS publishes directly to main (no editorial_workflow); safety nets: CI, CF keeps last good deploy, git revert | approved |
+| D20 | Editor login without GitHub: Cloudflare Access (OTP email) on /admin + /api; `functions/api/auth.js` verifies the Access JWT and hands over a fine-grained PAT (supersedes D5 OAuth) | approved |
 | Q1 | Club address: "Carrer de Xaloc, s/n" (legal pages) vs "27" (site.json)? | pending CEO |
 
 ## Coordination rules (lessons)
