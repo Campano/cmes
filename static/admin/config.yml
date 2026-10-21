@@ -1,12 +1,11 @@
 # Sveltia CMS – https://sveltiacms.app/en/docs/config-basics
-# backend.base_url = the site origin, set in index.html; OAuth: functions/api/auth.js + callback.js.
+# backend.base_url = the site origin, set in index.html; login: functions/api/auth.js (Cloudflare Access).
+# No publish_mode: "Desa" commits straight to main (D19).
 backend:
   name: github
   repo: Campano/cmes
   branch: main
   auth_endpoint: api/auth
-  # auth_scope: public_repo  # enough if the repo is public
-publish_mode: editorial_workflow
 # UI language follows the browser (Catalan available, English fallback); no `locale` option.
 # Leave empty optional fields out: an empty `image` would become `./` in parseFrontMatter.
 output: {omit_empty_optional_fields: true}

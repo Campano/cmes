@@ -30,31 +30,42 @@ A post's URL comes from its front matter `slug`; without one (new CMS posts) it 
 ## CMS (Sveltia)
 
 Editors use [Sveltia CMS](https://sveltiacms.app/) at `/admin/` (`static/admin/`, loaded from a pinned CDN with SRI, no npm dependency).
-Every change becomes a pull request (`publish_mode: editorial_workflow`); the editor guide is [docs/guia-editors.md](docs/guia-editors.md).
-GitHub login goes through two Cloudflare Pages Functions on the same site: `functions/api/auth.js` and `functions/api/callback.js`.
-Alternative without OAuth: **Sign In with Token**, pasting a GitHub personal access token (classic `repo` scope, or fine-grained
-with Contents + Pull requests read/write on this repo). The token stays in that browser.
-To upgrade, bump the version in `static/admin/index.html` and recompute the SRI hash:
+**Desa** commits straight to `main` and the site redeploys in 1–2 minutes; the editor guide is [docs/guia-editors.md](docs/guia-editors.md).
+Safety nets: CI on every push, Cloudflare keeps serving the last good deployment if a build fails, and `git revert`.
+Editors need no GitHub account: [Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/applications/) (one-time PIN
+by email) protects `/admin/` and `/api/`. Then `functions/api/auth.js` checks the Access JWT again (signature, `aud`, `iss`, expiry)
+and hands the CMS a shared GitHub token through the Decap-compatible popup handshake.
+To upgrade Sveltia, bump the version in `static/admin/index.html` and recompute the SRI hash:
 `curl -sL <script URL> | openssl dgst -sha384 -binary | openssl base64 -A`.
 
-**Local test** (writes straight to your working tree, no GitHub, no PRs; Chrome/Edge only):
+**Local test** (writes straight to your working tree, no GitHub; Chrome/Edge only):
 `npm start`, open http://localhost:3000/admin/index.html → **Work with Local Repository** → pick the repo folder.
 
 **One-time setup (CEO)**
 
-1. GitHub OAuth App (Settings → Developer settings → OAuth Apps → New): homepage `https://<site>`,
-   callback URL `https://<site>/api/callback`. One app per domain (e.g. one for `*.pages.dev`, one for `cmesoller.com`).
-2. Cloudflare Pages → project → Settings → Variables and secrets (Production): `GITHUB_CLIENT_ID`,
-   `GITHUB_CLIENT_SECRET` (as a secret). Redeploy afterwards.
-3. Scope: the functions request `repo` (needed for a private repo). If the repo is public, set
-   `auth_scope: public_repo` in `static/admin/config.yml` to ask for less.
-4. Editors: GitHub → repo Settings → Collaborators → add each editor's GitHub account with **Write** access.
-5. Branch protection on `main` (Settings → Branches/Rules): require a pull request with 1 approval, require the
-   CI `build` status check, and don't allow bypassing. Without it, an editor's "Publica" merges straight to `main`.
+1. **GitHub token**: GitHub (owner or bot account) → Settings → Developer settings → Fine-grained tokens → Generate:
+   resource owner `Campano`, expiration 1 year (custom date), only repository `Campano/cmes`, permissions
+   **Contents: Read and write** (Metadata: Read-only is added automatically), nothing else. Add a calendar reminder 2 weeks before it expires.
+2. **Cloudflare Zero Trust** (free plan): pick a team name (e.g. `cmes` → `https://cmes.cloudflareaccess.com`).
+   Settings → Authentication → Login methods → add **One-time PIN**. Access → Applications → Add → **Self-hosted**:
+   destinations `<prod domain>/admin` and `<prod domain>/api` (e.g. `cmes.pages.dev`; add `cmesoller.com` at cutover),
+   login method One-time PIN, policy **Allow** → Include → Emails → the editors' emails. Save and copy the
+   **Application Audience (AUD) Tag**.
+3. **Cloudflare Pages** → project → Settings → Variables and secrets, **Production** only: `GITHUB_TOKEN` (type Secret),
+   `CF_ACCESS_TEAM_DOMAIN` = `https://<team>.cloudflareaccess.com`, `CF_ACCESS_AUD` = the AUD tag. Delete `GITHUB_CLIENT_ID`
+   and `GITHUB_CLIENT_SECRET`. Redeploy (Deployments → latest → Retry deployment).
+4. **Delete the GitHub OAuth App** (Settings → Developer settings → OAuth Apps) and remove editors' GitHub collaborator access.
+5. **Branch protection on `main`**: remove "Require a pull request" and do not require status checks (both block the token's
+   direct pushes); CI stays informational. Keep "Block force pushes" and "Restrict deletions".
 
-**OAuth manual test** (after deploy): open `/admin/` → "Inicia la sessió amb GitHub" → GitHub asks to authorise the app →
-the popup closes and the CMS loads. Then save a test post and check that a `cms/…` branch and a PR appear on GitHub;
-`/api/callback?code=x&state=y` opened directly must contain `authorization:github:error` (view source), never a token.
+**Manual test** (after deploy): in a private window open `/admin/` → Cloudflare asks for an email and a code →
+**Inicia la sessió amb GitHub** → the popup closes and the CMS loads. Save a test post and check the commit on `main`.
+`curl -i https://<site>/api/auth` must redirect to the Cloudflare login, never return a token.
+
+**Security note**: the GitHub token reaches each editor's browser (that is how a git-based CMS works) and stays in its
+local storage until **Tanca la sessió**. Removing an editor from the Access policy doesn't revoke a token they already
+loaded: rotate it then, and at least yearly (new token → update `GITHUB_TOKEN` → redeploy → delete the old one).
+Commits are authored by the token owner; Zero Trust → Logs → Access shows who logged in and when.
 
 TODO: replace the placeholder `contactFormUrl` in `src/data/site.json` with the real Google Form URL.
 

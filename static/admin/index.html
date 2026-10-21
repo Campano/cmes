@@ -14,7 +14,7 @@
   <script src="https://unpkg.com/@sveltia/cms@0.250.0/dist/sveltia-cms.js"
     integrity="sha384-ZsKrJb+2fz2LQAmNGNALsLSBhiMyQEzAbodz2oj3+UYyp+OKIEwEJB259KvvZZo+"
     crossorigin="anonymous"></script>
-  <!-- OAuth runs on this same origin (functions/api/), so it works on *.pages.dev and on the final domain. -->
+  <!-- Login runs on this same origin (functions/api/auth.js), so it works on *.pages.dev and on the final domain. -->
   <script>CMS.init({config: {backend: {base_url: location.origin}}});</script>
 </body>
 </html>

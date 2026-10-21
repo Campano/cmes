@@ -2,10 +2,11 @@
 
 ## Entrar
 
-1. Ves a `https://<web>/admin/` i prem **Inicia la sessió amb GitHub**.
-2. Entra amb el teu compte de GitHub (el primer cop, accepta l'autorització).
-   Si no tens accés, demana al responsable del web que t'hi convidi.
-3. Si el gestor no surt en català, obre el menú del compte (a dalt a la dreta) →
+1. Ves a `https://<web>/admin/`, escriu el teu correu i prem **Send me a code**.
+2. Copia el codi que t'arriba per correu i prem **Sign in**.
+   Si no t'arriba, demana al responsable del web que afegeixi el teu correu.
+3. Prem **Inicia la sessió amb GitHub** (no cal cap compte de GitHub): la finestra emergent es tanca sola.
+4. Si el gestor no surt en català, obre el menú del compte (a dalt a la dreta) →
    **Configuració** → **Llengua** i tria **Català**.
 
 ## Crear o editar una notícia
@@ -17,7 +18,7 @@
 4. **Text**: escriu la notícia. Per mostrar només el començament a les llistes,
    posa una línia `<!-- truncate -->` (botó **Edita en Markdown**) després del primer paràgraf.
    Per canviar de línia prem **Retorn** (paràgraf nou): **Maj+Retorn** no es veu al web.
-5. Prem **Desa**. Res no es publica encara.
+5. Prem **Desa**: el canvi es publica al web en 1–2 minuts.
 
 ## Imatges
 
@@ -32,11 +33,8 @@
   `<Site field="..." />` no esborris aquestes etiquetes: mostren dades de **Configuració**.
 - **Configuració**: correu, adreça, IBAN, enllaç del formulari de contacte, xarxes.
 
-## Enviar a revisió
+## Publicar i desfer
 
-1. Quan hagis acabat, prem **Envia a revisió** (el gestor t'ho pregunta en desar) o
-   canvia l'**Estat** a **En revisió** (o **Llest**).
-2. El responsable del web rep la proposta, la revisa i la publica.
-   El web s'actualitza uns minuts després.
-3. A **Flux editorial** veus en quin punt està cada canvi. Pots seguir editant
-   mentre no estigui publicat.
+- Cada **Desa** publica directament: revisa el text abans de desar.
+- Per desfer un canvi, demana-ho al responsable del web (pot tornar a la versió anterior).
+- En un ordinador compartit, en acabar prem **Tanca la sessió** (menú del compte, a dalt a la dreta).
