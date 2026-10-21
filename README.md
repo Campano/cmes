@@ -57,3 +57,7 @@ the popup closes and the CMS loads. Then save a test post and check that a `cms/
 `/api/callback?code=x&state=y` opened directly must contain `authorization:github:error` (view source), never a token.
 
 TODO: replace the placeholder `contactFormUrl` in `src/data/site.json` with the real Google Form URL.
+
+## CI
+
+GitHub Actions (`.github/workflows/ci.yml`) runs `npm ci && npm run build` on every PR and push to `main`; broken links or images fail the build. Cloudflare Pages deploys (production from `main`, previews for PRs). The Node version lives in `.nvmrc`.
