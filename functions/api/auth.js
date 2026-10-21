@@ -3,7 +3,7 @@
 const b64 = (s) => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), (c) => c.charCodeAt(0));
 const json = (s) => JSON.parse(new TextDecoder().decode(b64(s)));
 
-async function verify(jwt, {CF_ACCESS_TEAM_DOMAIN: team, CF_ACCESS_AUD: aud}) {
+export async function verify(jwt, {CF_ACCESS_TEAM_DOMAIN: team, CF_ACCESS_AUD: aud}) {
   const [h, p, sig] = jwt.split('.');
   const header = json(h);
   const claims = json(p);
