@@ -20,7 +20,7 @@ module.exports = {
     parseFrontMatter: async (params) => {
       const result = await params.defaultParseFrontMatter(params);
       const fm = result.frontMatter;
-      // Decap writes a bare `image: cover.jpg`; Docusaurus only resolves co-located files with `./`.
+      // The CMS writes a bare `image: cover.jpg`; Docusaurus only resolves co-located files with `./`.
       if (typeof fm.image === 'string' && !/^(\.{0,2}\/|[a-z]+:)/i.test(fm.image)) {
         fm.image = `./${fm.image}`;
       }

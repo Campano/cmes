@@ -27,17 +27,18 @@ Post categories are tags; each one has an archive page at `/{category}/`.
 A post's URL comes from its front matter `slug`; without one (new CMS posts) it is
 `/{first tag}/{folder name without the date}/` (`parseFrontMatter` in `docusaurus.config.js`).
 
-## CMS (Decap)
+## CMS (Sveltia)
 
-Editors use [Decap CMS](https://decapcms.org/) at `/admin/` (`static/admin/`, loaded from a pinned CDN, no npm dependency).
+Editors use [Sveltia CMS](https://sveltiacms.app/) at `/admin/` (`static/admin/`, loaded from a pinned CDN with SRI, no npm dependency).
 Every change becomes a pull request (`publish_mode: editorial_workflow`); the editor guide is [docs/guia-editors.md](docs/guia-editors.md).
 GitHub login goes through two Cloudflare Pages Functions on the same site: `functions/api/auth.js` and `functions/api/callback.js`.
+Alternative without OAuth: **Sign In with Token**, pasting a GitHub personal access token (classic `repo` scope, or fine-grained
+with Contents + Pull requests read/write on this repo). The token stays in that browser.
+To upgrade, bump the version in `static/admin/index.html` and recompute the SRI hash:
+`curl -sL <script URL> | openssl dgst -sha384 -binary | openssl base64 -A`.
 
-**Local test** (writes straight to your working tree, no GitHub, no PRs):
-
-```sh
-npm run dev        # decap-server (port 8081) + site, then open http://localhost:3000/admin/
-```
+**Local test** (writes straight to your working tree, no GitHub, no PRs; Chrome/Edge only):
+`npm start`, open http://localhost:3000/admin/index.html → **Work with Local Repository** → pick the repo folder.
 
 **One-time setup (CEO)**
 
@@ -49,9 +50,9 @@ npm run dev        # decap-server (port 8081) + site, then open http://localhost
    `auth_scope: public_repo` in `static/admin/config.yml` to ask for less.
 4. Editors: GitHub → repo Settings → Collaborators → add each editor's GitHub account with **Write** access.
 5. Branch protection on `main` (Settings → Branches/Rules): require a pull request with 1 approval, require the
-   CI `build` status check, and don't allow bypassing. Without it, an editor's "Publicar" merges straight to `main`.
+   CI `build` status check, and don't allow bypassing. Without it, an editor's "Publica" merges straight to `main`.
 
-**OAuth manual test** (after deploy): open `/admin/` → "Iniciar sessió amb GitHub" → GitHub asks to authorise the app →
+**OAuth manual test** (after deploy): open `/admin/` → "Inicia la sessió amb GitHub" → GitHub asks to authorise the app →
 the popup closes and the CMS loads. Then save a test post and check that a `cms/…` branch and a PR appear on GitHub;
 `/api/callback?code=x&state=y` opened directly must contain `authorization:github:error` (view source), never a token.
 

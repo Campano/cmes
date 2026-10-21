@@ -42,3 +42,9 @@
   - Need from CEO: browser + exact symptom/console error if it still fails (Safari untested). Note: `markdown` widget is deprecated upstream (`richtext` is beta, drops soft line breaks #7816) → stay on `markdown` for now.
 - 19:45 cms-tweaks: navbar "Seccions" → "Blog" dropdown (label links to /blog/; items "Totes les notícies" + `site.json` `sections` + Actualitat), "Calendari" nav item dropped (page kept, linked from /agenda/). Build OK; screenshots /tmp/cmes-agenda.png, /tmp/cmes-blog-dropdown.png.
   - TODO before launch: remove the 6 `[PROVA]` test events from `src/data/events.json` (4 upcoming Oct–Dec 2026 incl. multi-day + link, 2 past); editable in Decap → Agenda.
+
+## 2026-10-21
+- sveltia (cloud, branch `sveltia`, PR "Sveltia CMS instead of Decap (evaluation)"): Decap 3.17.1 → Sveltia 0.250.0 (unpkg, pinned + SRI). Config: dropped `local_backend`/`locale` (ignored), `sortable_fields` + `summary` rewritten (Sveltia rejected them), `omit_empty_optional_fields` (else `image: ''` breaks parseFrontMatter). `npm run dev` removed (no decap-server; local = `npm start` + "Work with Local Repository", Chromium only).
+  - OAuth functions reused; 2 one-line fixes: Sveltia sends `scope=repo,user`, and reads errors from `error` not `message`. Handshake tested in headless Chrome with mocked GitHub token exchange (token reaches the API, errors shown).
+  - Tested in Chrome (local repo via OPFS shim): 4 collections load, Catalan UI auto, edit round-trip keeps body/`<!-- truncate -->`/hard breaks, new post → `blog/YYYY-MM-DD-slug/index.md` + uploaded cover, build OK. Untested: real GitHub OAuth, editorial PRs, Safari/Firefox. Shift+Enter writes soft breaks (invisible on the site).
+  - Decision for CEO: keep Decap or merge this PR.

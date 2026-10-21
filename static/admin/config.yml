@@ -1,4 +1,4 @@
-# Decap CMS – https://decapcms.org/docs/configuration-options/
+# Sveltia CMS – https://sveltiacms.app/en/docs/config-basics
 # backend.base_url = the site origin, set in index.html; OAuth: functions/api/auth.js + callback.js.
 backend:
   name: github
@@ -7,8 +7,9 @@ backend:
   auth_endpoint: api/auth
   # auth_scope: public_repo  # enough if the repo is public
 publish_mode: editorial_workflow
-local_backend: true # only used on localhost with `npx decap-server`
-locale: ca
+# UI language follows the browser (Catalan available, English fallback); no `locale` option.
+# Leave empty optional fields out: an empty `image` would become `./` in parseFrontMatter.
+output: {omit_empty_optional_fields: true}
 media_folder: static/img
 public_folder: /img
 slug:
@@ -26,8 +27,8 @@ collections:
     create: true
     format: frontmatter
     extension: md
-    summary: '{{year}}-{{month}}-{{day}} · {{title}}'
-    sortable_fields: [{field: date, default_sort: desc}, title]
+    summary: "{{date | date('YYYY-MM-DD')}} · {{title}}"
+    sortable_fields: {fields: [date, title], default: {field: date, direction: descending}}
     fields:
       - {label: Títol, name: title, widget: string}
       - {label: Data, name: date, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ss', default: '{{now}}'}
