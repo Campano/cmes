@@ -3,7 +3,23 @@ import { categories } from '../lib/posts.js';
 
 const path = Astro.url.pathname;
 const on = (href) => path === href || (href !== '/' && path.startsWith(href));
-const sectionsOpen = path === '/blog/' || categories.some((c) => path.startsWith(`/${c.slug}/`));
+
+const nav = [
+  {
+    label: 'Notícies',
+    href: '/blog/',
+    children: [
+      { label: 'Totes les notícies', href: '/blog/' },
+      ...categories.map((c) => ({ label: c.label, href: `/${c.slug}/` })),
+    ],
+  },
+  { label: 'Agenda', href: '/agenda/' },
+  { label: 'El club', href: '/el-club/' },
+  { label: 'Local social', href: '/local-social/' },
+  { label: 'Contacte', href: '/contacte/' },
+];
+const cta = { label: 'Fes-te soci', href: '/fes-te-soci/' };
+const newsOpen = nav[0].children.some((item) => on(item.href));
 ---
 
 <a class="skip" href="#main">Salta al contingut</a>
@@ -22,20 +38,29 @@ const sectionsOpen = path === '/blog/' || categories.some((c) => path.startsWith
       <span></span>
     </button>
     <nav id="site-nav" class="site-nav" aria-label="Principal">
-      <div class="drop">
-        <a href="/blog/" class="drop-trigger" aria-current={sectionsOpen ? 'page' : undefined}>Seccions</a>
-        <ul class="drop-menu">
-          <li><a href="/blog/" aria-current={path === '/blog/' ? 'page' : undefined}>Totes les notícies</a></li>
-          {categories.map((c) => (
-            <li>
-              <a href={`/${c.slug}/`} aria-current={path === `/${c.slug}/` ? 'page' : undefined}>{c.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <a href="/agenda/" aria-current={on('/agenda/') ? 'page' : undefined}>Agenda</a>
-      <a href="/el-club/" aria-current={on('/el-club/') ? 'page' : undefined}>El club</a>
-      <a class="nav-cta" href="/fes-te-soci/" aria-current={on('/fes-te-soci/') ? 'page' : undefined}>Fes-te soci</a>
+      {nav.map((item) =>
+        item.children ? (
+          <div class="drop">
+            <a href={item.href} class="drop-trigger" aria-current={newsOpen ? 'page' : undefined}>
+              {item.label}
+            </a>
+            <ul class="drop-menu">
+              {item.children.map((child) => (
+                <li>
+                  <a href={child.href} aria-current={path === child.href ? 'page' : undefined}>
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <a href={item.href} aria-current={on(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        )
+      )}
+      <a class="nav-cta" href={cta.href} aria-current={on(cta.href) ? 'page' : undefined}>{cta.label}</a>
     </nav>
   </div>
 </header>
@@ -60,6 +85,6 @@ const sectionsOpen = path === '/blog/' || categories.some((c) => path.startsWith
       if (e.key === 'Escape') close();
     });
     nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
-    matchMedia('(min-width: 860px)').addEventListener('change', close);
+    matchMedia('(min-width: 1024px)').addEventListener('change', close);
   })();
 </script>

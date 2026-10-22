@@ -1,56 +1,201 @@
 ---
 import Base from '../layouts/Base.astro';
 import data from '../data/events.json';
+import { WEEKDAYS, monthCells, onDay, labelMonth, localToday } from '../lib/calendar.js';
 
 const formatDate = (d) =>
   new Date(d).toLocaleDateString('ca', { dateStyle: 'long', timeZone: 'UTC' });
 
-const events = [...data.events].sort((a, b) => a.date.localeCompare(b.date));
+const events = [...data.events]
+  .sort((a, b) => a.date.localeCompare(b.date))
+  .map((e, i) => ({ ...e, id: `event-${i}` }));
+
+const now = new Date();
+const year = now.getFullYear();
+const month = now.getMonth();
+const today = localToday();
+const cells = monthCells(year, month);
+const heading = labelMonth(year, month);
+const eventsJson = JSON.stringify(events).replace(/</g, '\\u003c');
 ---
 
 <Base title="Agenda" description="Properes activitats del CMES.">
   <section class="band">
-    <div class="wrap prose">
-      <h1>Agenda</h1>
-      <div id="upcoming" class="agenda-list">
-        {events.map((e) => (
-          <article class="event" data-end={e.endDate || e.date}>
-            <h2>{e.link ? <a href={e.link}>{e.title}</a> : e.title}</h2>
-            <p class="event-meta">
-              <strong>
-                {formatDate(e.date)}
-                {e.endDate && ` – ${formatDate(e.endDate)}`}
-              </strong>
-              {[e.place, e.section].filter(Boolean).map((s) => ` · ${s}`)}
-            </p>
-            {e.description && <p>{e.description}</p>}
-          </article>
-        ))}
+    <div class="wrap">
+      <div class="band-head">
+        <h1>Agenda</h1>
       </div>
-      <p id="no-upcoming" class="empty" hidden>Ara mateix no hi ha activitats programades. Torna-hi aviat!</p>
-      <details id="past-wrap" class="agenda-past" hidden>
-        <summary>Activitats passades</summary>
-        <div id="past" class="agenda-list"></div>
-      </details>
-      <p>
+
+      <div class="agenda-bar">
+        <div class="agenda-views" role="group" aria-label="Vista de l'agenda">
+          <button type="button" id="view-cal" aria-pressed="true">Calendari</button>
+          <button type="button" id="view-list" aria-pressed="false">Llista</button>
+        </div>
+        <div class="cal-nav" id="cal-nav">
+          <button type="button" id="cal-prev" aria-label="Mes anterior">‹</button>
+          <h2 id="cal-label">{heading}</h2>
+          <button type="button" id="cal-next" aria-label="Mes següent">›</button>
+        </div>
+      </div>
+
+      <div id="cal-view">
+        <div class="cal" id="cal" role="grid" aria-labelledby="cal-label" data-year={year} data-month={month}>
+          <div class="cal-weekdays" role="row">
+            {WEEKDAYS.map((w) => (
+              <div class="cal-dow" role="columnheader" title={w.long}>{w.short}</div>
+            ))}
+          </div>
+          <div class="cal-days">
+            {cells.map((c) =>
+              c ? (
+                <div
+                  class:list={['cal-cell', { 'is-today': c.iso === today }]}
+                  role="gridcell"
+                >
+                  <time datetime={c.iso}>{c.day}</time>
+                  <ul>
+                    {onDay(events, c.iso).map((e) => (
+                      <li>
+                        <a class="cal-event" href={e.link || `#${e.id}`} title={e.title}>{e.title}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div class="cal-cell is-pad" role="gridcell"></div>
+              )
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div id="list-view" hidden>
+        <div id="upcoming" class="agenda-list">
+          {events.map((e) => (
+            <article class="event" id={e.id} data-end={e.endDate || e.date}>
+              <h2>{e.link ? <a href={e.link}>{e.title}</a> : e.title}</h2>
+              <p class="event-meta">
+                <strong>
+                  {formatDate(e.date)}
+                  {e.endDate && ` – ${formatDate(e.endDate)}`}
+                </strong>
+                {[e.place, e.section].filter(Boolean).map((s) => ` · ${s}`)}
+              </p>
+              {e.description && <p>{e.description}</p>}
+            </article>
+          ))}
+        </div>
+        <p id="no-upcoming" class="empty" hidden>Ara mateix no hi ha activitats programades. Torna-hi aviat!</p>
+        <details id="past-wrap" class="agenda-past" hidden>
+          <summary>Activitats passades</summary>
+          <div id="past" class="agenda-list"></div>
+        </details>
+      </div>
+
+      <p class="agenda-note">
         Consulta les <a href="/calendari/">normes de participació</a> a les activitats.
       </p>
     </div>
   </section>
 </Base>
 
-<script is:inline>
-  (() => {
+<script id="agenda-events" type="application/json" set:html={eventsJson} />
+
+<script>
+  import { monthCells, onDay, labelMonth, localToday } from '../lib/calendar.js';
+
+  const events = JSON.parse(document.getElementById('agenda-events').textContent);
+  const cal = document.getElementById('cal');
+  const calView = document.getElementById('cal-view');
+  const listView = document.getElementById('list-view');
+  const calNav = document.getElementById('cal-nav');
+  const label = document.getElementById('cal-label');
+  const viewCal = document.getElementById('view-cal');
+  const viewList = document.getElementById('view-list');
+  const daysEl = cal?.querySelector('.cal-days');
+
+  if (cal && daysEl && label && viewCal && viewList && calView && listView && calNav) {
+    let year = Number(cal.dataset.year);
+    let month = Number(cal.dataset.month);
+
+    const setView = (mode) => {
+      const isCal = mode === 'cal';
+      calView.hidden = !isCal;
+      listView.hidden = isCal;
+      calNav.hidden = !isCal;
+      viewCal.setAttribute('aria-pressed', String(isCal));
+      viewList.setAttribute('aria-pressed', String(!isCal));
+    };
+
+    const render = () => {
+      const today = localToday();
+      label.textContent = labelMonth(year, month);
+      cal.dataset.year = String(year);
+      cal.dataset.month = String(month);
+      daysEl.replaceChildren();
+      for (const c of monthCells(year, month)) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-cell' + (c ? '' : ' is-pad') + (c && c.iso === today ? ' is-today' : '');
+        cell.setAttribute('role', 'gridcell');
+        if (c) {
+          const time = document.createElement('time');
+          time.dateTime = c.iso;
+          time.textContent = String(c.day);
+          cell.append(time);
+          const ul = document.createElement('ul');
+          for (const e of onDay(events, c.iso)) {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.className = 'cal-event';
+            a.href = e.link || `#${e.id}`;
+            a.title = e.title;
+            a.textContent = e.title;
+            li.append(a);
+            ul.append(li);
+          }
+          cell.append(ul);
+        }
+        daysEl.append(cell);
+      }
+    };
+
+    viewCal.addEventListener('click', () => setView('cal'));
+    viewList.addEventListener('click', () => setView('list'));
+    document.getElementById('cal-prev')?.addEventListener('click', () => {
+      month -= 1;
+      if (month < 0) {
+        month = 11;
+        year -= 1;
+      }
+      render();
+    });
+    document.getElementById('cal-next')?.addEventListener('click', () => {
+      month += 1;
+      if (month > 11) {
+        month = 0;
+        year += 1;
+      }
+      render();
+    });
+    cal.addEventListener('click', (ev) => {
+      const a = ev.target.closest('a.cal-event');
+      if (!a || !a.getAttribute('href')?.startsWith('#')) return;
+      ev.preventDefault();
+      setView('list');
+      document.getElementById(a.hash.slice(1))?.scrollIntoView({ block: 'start' });
+    });
+  }
+
+  const upcoming = document.getElementById('upcoming');
+  const past = document.getElementById('past');
+  const pastWrap = document.getElementById('past-wrap');
+  const empty = document.getElementById('no-upcoming');
+  if (upcoming && past && pastWrap && empty) {
     const today = new Date().toISOString().slice(0, 10);
-    const upcoming = document.getElementById('upcoming');
-    const past = document.getElementById('past');
-    const pastWrap = document.getElementById('past-wrap');
-    const empty = document.getElementById('no-upcoming');
-    if (!upcoming || !past || !pastWrap || !empty) return;
     [...upcoming.querySelectorAll('.event')].forEach((el) => {
       if ((el.getAttribute('data-end') || '') < today) past.append(el);
     });
     if (past.children.length) pastWrap.hidden = false;
     if (!upcoming.querySelector('.event')) empty.hidden = false;
-  })();
+  }
 </script>
