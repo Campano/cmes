@@ -279,9 +279,7 @@ body.nav-open .site-nav {
 
 .hero {
   position: relative;
-  display: grid;
   min-height: calc(100svh - var(--header-h));
-  color: #fff;
   background: #1a1814;
 }
 
@@ -293,34 +291,13 @@ body.nav-open .site-nav {
   object-fit: cover;
 }
 
-.hero-scrim {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgb(20 18 16 / 35%) 0%, rgb(20 18 16 / 15%) 40%, rgb(20 18 16 / 78%) 100%);
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  align-self: end;
-  padding: 2.5rem 0 3rem;
-}
-
-.hero-logo {
-  display: block;
-  width: min(22rem, 86vw);
-  margin-bottom: 1.25rem;
-  filter: drop-shadow(0 2px 18px rgb(0 0 0 / 55%));
-}
-
 .hero-kicker {
   display: flex;
   align-items: center;
   gap: 0.7rem;
   margin: 0 0 0.5rem;
   font-family: var(--font-head);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -335,8 +312,9 @@ body.nav-open .site-nav {
 
 .hero-lead {
   max-width: 22rem;
-  margin: 0 0 1.5rem;
-  font-size: 1.15rem;
+  margin: 0 0 1.1rem;
+  font-size: 1.05rem;
+  line-height: 1.4;
 }
 
 .band {
@@ -372,55 +350,6 @@ body.nav-open .site-nav {
 
 .more:hover {
   color: var(--red);
-}
-
-.sections {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--ink);
-  border: 1px solid var(--ink);
-}
-
-.sections a {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 0.35rem;
-  min-height: 7.5rem;
-  padding: 1rem 1.1rem;
-  background: var(--paper);
-  font-family: var(--font-head);
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-decoration: none;
-}
-
-.sections a small {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.sections a:hover,
-.sections a:focus-visible {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.sections a:hover small,
-.sections a:focus-visible small {
-  color: #e7c0bc;
-}
-
-@media (min-width: 800px) {
-  .sections {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .cards {
@@ -502,12 +431,38 @@ body.nav-open .site-nav {
   color: var(--paper);
 }
 
-.club-photo img {
+.club-photo {
+  position: relative;
+  color: #fff;
+}
+
+.club-photo > img {
   display: block;
   width: 100%;
-  height: 100%;
-  max-height: 22rem;
+  height: 16rem;
   object-fit: cover;
+}
+
+.club-scrim {
+  display: none;
+}
+
+.club-brand {
+  padding: 1.15rem var(--space) 0.35rem;
+}
+
+.club-logo {
+  display: block;
+  width: min(13.5rem, 70vw);
+  margin-bottom: 0.55rem;
+  filter: drop-shadow(0 2px 14px rgb(0 0 0 / 55%));
+}
+
+.club-brand .btn-accent:hover,
+.club-brand .btn-accent:focus-visible {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
 }
 
 .club-copy {
@@ -534,9 +489,40 @@ body.nav-open .site-nav {
     grid-template-columns: 1.1fr 1fr;
   }
 
-  .club-photo img {
-    max-height: none;
-    min-height: 100%;
+  .club-photo {
+    min-height: 0;
+  }
+
+  .club-photo > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .club-scrim {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgb(20 18 16 / 78%) 0%, rgb(20 18 16 / 38%) 42%, rgb(20 18 16 / 8%) 100%);
+  }
+
+  .club-brand {
+    position: absolute;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    max-width: 22rem;
+    padding: 2rem 2rem 2.25rem;
+  }
+
+  .club-logo {
+    width: min(16.5rem, 100%);
+    margin-bottom: 0.85rem;
   }
 
   .club-copy {
@@ -637,6 +623,44 @@ body.nav-open .site-nav {
   overflow-x: auto;
   border-collapse: collapse;
   font-size: 0.95rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 1.2rem 0 1.6rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prose .table-scroll table {
+  display: table;
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  margin: 0;
+  overflow: visible;
+  font-size: 0.82rem;
+}
+
+.prose .table-scroll th,
+.prose .table-scroll td {
+  padding: 0.32rem 0.5rem;
+}
+
+.prose .table-scroll th:first-child {
+  background: var(--paper);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.prose .table-scroll thead th:first-child {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.prose .table-scroll td {
+  min-width: 8.5rem;
+  max-width: 12rem;
 }
 
 .prose th,
