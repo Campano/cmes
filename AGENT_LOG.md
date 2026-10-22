@@ -75,3 +75,4 @@
 - Header IA: Club first (Informació / Local social / Normes; label → /el-club/), then Notícies, Agenda, Contacte, Fes-te soci + Instagram SVG. Footer dropped Local social, Contacte, Normes, Facebook, Twitter; kept legal, email, Instagram. 301 /club/ → /el-club/.
 - Submenu spacing: more padding/gap on `.drop-menu` (mobile burger + desktop). Build OK. Committed on astro, not pushed.
 - Homepage: dropped hikers hero (`club.jpg`). Night Tramuntana (`hero.jpg`) is the opening visual; logo, kicker, lead, Fes-te soci and El club copy share the right column on desktop. Mobile: photo → branding → club text. No empty hero, no overlay. Build OK. Committed on astro, not pushed.
+- Footer Instagram: text link → shared `InstagramLink` icon (same glyph as header, `aria-label="Instagram"`, site.json URL, new tab + rel=noopener). No Facebook/Twitter. Build OK. Committed on astro, not pushed.

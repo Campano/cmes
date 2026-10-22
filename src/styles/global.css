@@ -956,7 +956,26 @@ body.nav-open .site-nav {
   color: var(--red-btn);
 }
 
-.footer-links,
+.footer-social {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0.75rem;
+}
+
+.footer-ig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.footer-ig svg {
+  display: block;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
 .footer-legal {
   display: flex;
   flex-wrap: wrap;
@@ -966,7 +985,6 @@ body.nav-open .site-nav {
   list-style: none;
 }
 
-.footer-links a,
 .footer-legal a,
 .site-footer a {
   color: var(--paper);

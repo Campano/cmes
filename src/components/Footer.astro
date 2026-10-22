@@ -1,8 +1,8 @@
 ---
 import site from '../../content/site.json';
+import InstagramLink from './InstagramLink.astro';
 
 const year = new Date().getFullYear();
-const footerSocial = site.social.filter((s) => s.label !== 'Facebook' && s.label !== 'Twitter');
 ---
 
 <footer class="site-footer">
@@ -25,11 +25,9 @@ const footerSocial = site.social.filter((s) => s.label !== 'Facebook' && s.label
       </p>
     </div>
     <div>
-      <ul class="footer-links">
-        {footerSocial.map((s) => (
-          <li><a href={s.href} rel="me noopener">{s.label}</a></li>
-        ))}
-      </ul>
+      <div class="footer-social">
+        <InstagramLink class="footer-ig" />
+      </div>
       <ul class="footer-legal">
         <li><a href="/avis-legal/">Avís legal</a></li>
         <li><a href="/politica-de-privacitat/">Política de privacitat</a></li>
