@@ -19,7 +19,7 @@
        upgrade) so it skips its sign-in screen. On any failure the usual "Sign in with GitHub" button shows. -->
   <script>
     fetch('/api/token')
-      .then((r) => r.ok && r.json())
+      .then((r) => (r.ok ? r.json() : r.text().then((t) => console.warn('/api/token', t))))
       .then((d) => d?.token && localStorage.setItem('sveltia-cms.user', JSON.stringify({backendName: 'github', token: d.token})))
       .catch(() => {})
       .finally(() => CMS.init({config: {backend: {base_url: location.origin}}}));
