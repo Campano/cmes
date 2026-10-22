@@ -11,17 +11,7 @@ const { Content: Intro } = await render(intro);
 const posts = (await getPosts()).slice(0, 6);
 ---
 
-<Base description={site.tagline} image="/img/club.jpg">
-  <section class="hero" aria-label="Fotografia del club">
-    <img
-      class="hero-img"
-      src="/img/club.jpg"
-      alt="Socis del CMES caminant per un cingle de la Serra de Tramuntana, sobre la mar"
-      width="1920"
-      height="1080"
-    />
-  </section>
-
+<Base description={site.tagline} image="/img/hero.jpg">
   <section class="club" aria-labelledby="club-title">
     <div class="club-photo">
       <img
@@ -30,7 +20,8 @@ const posts = (await getPosts()).slice(0, 6);
         width="1600"
         height="900"
       />
-      <div class="club-scrim"></div>
+    </div>
+    <div class="club-panel">
       <div class="club-brand">
         <img
           class="club-logo"
@@ -43,11 +34,11 @@ const posts = (await getPosts()).slice(0, 6);
         <p class="hero-lead">Senderisme, barranquisme, escalada i curses per muntanya.</p>
         <a class="btn btn-accent" href="/fes-te-soci/">Fes-te soci</a>
       </div>
-    </div>
-    <div class="club-copy">
-      <h2 id="club-title">El club</h2>
-      <Intro />
-      <a class="more" href="/el-club/">Coneix el club</a>
+      <div class="club-copy">
+        <h2 id="club-title">El club</h2>
+        <Intro />
+        <a class="more" href="/el-club/">Coneix el club</a>
+      </div>
     </div>
   </section>
 
