@@ -20,8 +20,7 @@ const posts = (await getPosts()).slice(0, 6);
         width="1600"
         height="900"
       />
-    </div>
-    <div class="club-panel">
+      <div class="club-scrim" aria-hidden="true"></div>
       <div class="club-brand">
         <img
           class="club-logo"
@@ -34,11 +33,11 @@ const posts = (await getPosts()).slice(0, 6);
         <p class="hero-lead">Senderisme, barranquisme, escalada i curses per muntanya.</p>
         <a class="btn btn-accent" href="/fes-te-soci/">Fes-te soci</a>
       </div>
-      <div class="club-copy">
-        <h2 id="club-title">El club</h2>
-        <Intro />
-        <a class="more" href="/el-club/">Coneix el club</a>
-      </div>
+    </div>
+    <div class="club-copy">
+      <h2 id="club-title">El club</h2>
+      <Intro />
+      <a class="more" href="/el-club/">Coneix el club</a>
     </div>
   </section>
 
