@@ -15,7 +15,7 @@ npm run serve      # preview the build (also at :3000)
 |---|---|
 | Framework preset | Astro |
 | Build command | `npm run build` |
-| Output directory | `dist` |
+| Output directory | `dist` (the dashboard must not still say `build` from Docusaurus) |
 | Node version | `.nvmrc` (24) |
 
 Keep the project **static** (`dist` + root `functions/`). Do not add the Astro Cloudflare adapter: Access auth lives in `functions/api/*` as Pages Functions.

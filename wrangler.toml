@@ -1,0 +1,4 @@
+# Cloudflare Pages: Astro writes to dist/, not Docusaurus's build/.
+name = "cmes"
+compatibility_date = "2026-10-22"
+pages_build_output_dir = "dist"
