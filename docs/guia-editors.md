@@ -14,11 +14,11 @@
 
 1. A **Notícies**, prem **Nou** (o obre'n una d'existent).
 2. Omple el **Títol**, la **Data** (botó **Ara**) i les **Categories**.
-   La primera categoria que marquis forma part de l'adreça: `/senderisme/titol-de-la-noticia/`.
+   L'adreça és `/noticies/` més el nom de la carpeta (data i títol), p. ex. `/noticies/2026-10-22-sortida-a-deia/`.
+   La primera categoria no forma part de l'adreça.
 3. **Resum**: una o dues frases (surt a Google i a les xarxes).
-4. **Text**: escriu la notícia. Per mostrar només el començament a les llistes,
-   posa una línia `<!-- truncate -->` (botó **Edita en Markdown**) després del primer paràgraf.
-   Per canviar de línia prem **Retorn** (paràgraf nou): **Maj+Retorn** no es veu al web.
+4. **Text**: escriu la notícia. Per canviar de línia prem **Retorn** (paràgraf nou):
+   **Maj+Retorn** no es veu al web.
 5. Prem **Desa**: el canvi es publica al web en 1–2 minuts.
 
 ## Imatges

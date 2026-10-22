@@ -1,7 +1,7 @@
 # AGENT.md — Architect memory (source of truth)
 
 ## Mission
-Replace https://cmesoller.com/ with a Docusaurus site + Sveltia CMS (Decap-compatible; was Decap until D18).
+Replace https://cmesoller.com/ with a static Astro site + Sveltia CMS.
 Non-technical editors → CMS commits straight to main (D19), login via Cloudflare Access (D20).
 
 ## Principles
@@ -11,9 +11,9 @@ Non-technical editors → CMS commits straight to main (D19), login via Cloudfla
 
 ## Roadmap
 1. [x] Audit current site → docs/audit.md
-2. [x] Docusaurus clone (d9bb397). Fix-up pending: per-post images, Google Form link, drop cookie page
-3. [ ] Add Decap CMS + test editorial (PR) workflow
-4. [ ] Choose target infra
+2. [x] Import the WordPress content. First built in Docusaurus; the codebase is now Astro (static, `dist/`)
+3. [x] Sveltia CMS at `/admin/`, commits straight to main (D18, D19, D20)
+4. [x] Hosting: Cloudflare Pages (D2)
 5. [ ] Deploy on test domain
 6. [ ] Migrate production domain
 
@@ -52,24 +52,25 @@ Non-technical editors → CMS commits straight to main (D19), login via Cloudfla
 | D14b | Cloud agents may push their OWN branch and open a PR; only the CEO merges into main | approved |
 | D18 | CMS: Sveltia CMS replaces Decap (PR #1 https://github.com/Campano/cmes/pull/1). Real GitHub login tested at deploy | approved |
 
-## Current site (from docs/audit.md)
-WordPress+Elementor Pro on LucusHost (shared, also DNS + mail). Registrar registrador.es, exp 2027-03-15.
-11 pages, 51 posts (2022–2024, 5 categories), ~186 media/60MB. Catalan only (legal in Spanish).
-URLs: posts `/{category}/{slug}/`, pages `/{slug}/` → must preserve.
-Integrations: contact form (Elementor), GA4, cookie banner, Instagram feed, 2022 events calendar.
-RISK: MX on same shared host — recreate mail records before cutover.
+## Current site
+Static Astro 7 + Sveltia CMS. CMS copy lives in `content/` (news `content/noticies/`, pages `content/pages/`, `site.json`, `events.json`). Post URLs are `/noticies/{folder}/`; category lists `/noticies/{tag}/`. Shared images in `public/img/`. Editor login is Cloudflare Access (`functions/api/`).
+
+The WordPress site being replaced is inventoried in docs/audit.md.
+RISK: MX is on the same shared host as the current website — recreate mail records before cutover.
 
 ## Working defaults (reversible, until CEO says otherwise)
 - Drop Instagram feed. Events: new CMS collection (D12), no 2022 data.
 - Contact: Google Form link (D10). Analytics: CF Web Analytics at deploy (D11).
 
-## Open questions → CEO
-See AGENT_LOG.md latest entry.
+## Open before launch
+- `contactFormUrl` in `content/site.json` is still `https://forms.gle/TODO-contact-form`.
+- `content/events.json` is six `[PROVA]` sample events. Clear them before the agenda goes live.
+- Address: legal pages say "Carrer de Xaloc, s/n"; `site.json` says "27" (Q1, pending CEO).
 
 ## Team
 - Architect (me): coordination, decisions, reviews.
 - Worker "audit": site inventory → `docs/audit.md`.
 
 ## Known env facts
-- Local: macOS, node + npm via Homebrew. `gh` CLI NOT installed.
-- Repo: /Users/lokoda/dev/personal/cmes, empty, no remote.
+- Local: macOS, node + npm via Homebrew. CI uses Node 24 (`.nvmrc`).
+- Repo: /Users/lokoda/dev/personal/cmes, origin https://github.com/Campano/cmes. Agents commit locally; the CEO pushes.

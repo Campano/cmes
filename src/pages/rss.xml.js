@@ -1,5 +1,5 @@
-import { getPosts, isoDate } from '../lib/posts.js';
-import site from '../data/site.json';
+import { getPosts } from '../lib/posts.js';
+import site from '../../content/site.json';
 
 function xml(s) {
   return String(s)

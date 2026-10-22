@@ -26,18 +26,18 @@ Auth env vars are unchanged: `GITHUB_TOKEN`, `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS
 
 | What | Where |
 |---|---|
-| News posts, one folder each with its images (`cover.jpg` = featured image) | `blog/YYYY-MM-DD-slug/index.md` |
-| Pages (URL = file name) | `src/pages/` |
-| Home intro text | `src/pages/_inici.md` |
+| News posts, one folder each with its images (`cover.jpg` = featured image) | `content/noticies/YYYY-MM-DD-slug/index.md` |
+| Pages (URL = file name) | `content/pages/` |
+| Home intro text | `content/pages/_inici.md` |
 | Shared images and files (logo, page photos, PDF) | `public/img/` |
-| Site settings (email, address, IBAN, contact form URL, social links, sections) | `src/data/site.json` |
+| Site settings (email, address, IBAN, contact form URL, social links, sections) | `content/site.json` |
 | Redirects for old WordPress URLs (Cloudflare Pages) | `public/_redirects` |
-| Agenda events (page `/agenda/`, past events collapsed) | `src/data/events.json` |
+| Agenda events (page `/agenda/`, past events collapsed) | `content/events.json` |
 
-In `.mdx` pages, `<Site field="email" />` prints a value from `src/data/site.json`.
-Post categories are tags; each one has an archive page at `/{category}/`.
-A post's URL comes from its front matter `slug`; without one (new CMS posts) it is
-`/{first tag}/{folder name without the date}/` (`permalinkOf` in `src/lib/posts.js`).
+In `.mdx` pages, `<Site field="email" />` prints a value from `content/site.json`.
+Post categories are tags; each one has an archive page at `/noticies/{category}/`.
+A post's URL is `/noticies/{folder}/` (`permalinkOf` in `src/lib/posts.js`). List URLs
+`/blog/` and `/{category}/` redirect to `/noticies/` and `/noticies/{category}/`.
 
 ## CMS (Sveltia)
 
@@ -90,7 +90,7 @@ Removing an editor from the Access policy doesn't revoke a token they already lo
 revoked token and no new one, the CMS falls back to its sign-in screen with an error.
 Commits are authored by the token owner; Zero Trust → Logs → Access shows who logged in and when.
 
-TODO: replace the placeholder `contactFormUrl` in `src/data/site.json` with the real Google Form URL.
+TODO: replace the placeholder `contactFormUrl` in `content/site.json` with the real Google Form URL.
 
 ## CI
 

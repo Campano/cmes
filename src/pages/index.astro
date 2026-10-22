@@ -1,10 +1,13 @@
 ---
+import { getEntry, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
-import Intro from './_inici.md';
 import { getPosts } from '../lib/posts.js';
-import site from '../data/site.json';
+import site from '../../content/site.json';
 
+const intro = await getEntry('pages', '_inici');
+if (!intro) throw new Error('Missing content/pages/_inici.md');
+const { Content: Intro } = await render(intro);
 const posts = (await getPosts()).slice(0, 6);
 const numbered = site.sections.map((s, i) => ({
   ...s,
@@ -72,7 +75,7 @@ const numbered = site.sections.map((s, i) => ({
     <div class="wrap">
       <div class="band-head">
         <h2 id="news-title">Actualitat</h2>
-        <a class="more" href="/blog/">Totes les notícies</a>
+        <a class="more" href="/noticies/">Totes les notícies</a>
       </div>
       <div class="cards cards-3">
         {posts.map((post) => <PostCard post={post} />)}

@@ -1,4 +1,4 @@
-/** Same rules as the old Docusaurus parseFrontMatter hook. */
+/** URL segment: lower case, no accents, words joined by hyphens. */
 export function slugify(s) {
   return s
     .normalize('NFD')

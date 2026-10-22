@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- translate="no": browser auto-translation rewrites the DOM under React and breaks the rich text editor. -->
+<!-- translate="no": browser auto-translation rewrites the DOM and breaks the editor. -->
 <html lang="ca" translate="no">
 <head>
   <meta charset="utf-8" />
@@ -18,11 +18,18 @@
   <!-- Access has already logged the editor in: seed Sveltia's session ('sveltia-cms.user', check it on every
        upgrade) so it skips its sign-in screen. On any failure the usual "Sign in with GitHub" button shows. -->
   <script>
-    fetch('/api/token')
-      .then((r) => (r.ok ? r.json() : r.text().then((t) => console.warn('/api/token', t))))
-      .then((d) => d?.token && localStorage.setItem('sveltia-cms.user', JSON.stringify({backendName: 'github', token: d.token})))
-      .catch(() => {})
-      .finally(() => CMS.init({config: {backend: {base_url: location.origin}}}));
+    const local = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    const boot = () => CMS.init({config: {backend: {base_url: location.origin}}});
+    if (local) boot();
+    else {
+      fetch('/api/token')
+        .then((r) => (r.ok ? r.json() : r.text().then((t) => { console.warn('/api/token', t); return null; })))
+        .then((d) => {
+          if (d?.token) localStorage.setItem('sveltia-cms.user', JSON.stringify({backendName: 'github', token: d.token}));
+        })
+        .catch(() => {})
+        .finally(boot);
+    }
   </script>
 </body>
 </html>

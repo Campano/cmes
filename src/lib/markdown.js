@@ -1,5 +1,4 @@
-import { basename } from 'node:path';
-import site from '../data/site.json';
+import site from '../../content/site.json';
 
 function walk(node, fn) {
   fn(node);
@@ -48,23 +47,11 @@ export function siteTagsPlugin() {
   };
 }
 
-/** Default layout for markdown pages in src/pages (CMS files have no layout field). */
-export function remarkInjectLayout() {
-  return function (_tree, file) {
-    const filepath = String(file.history?.[0] || file.path || '').replace(/\\/g, '/');
-    if (!filepath.includes('/src/pages/')) return;
-    if (basename(filepath).startsWith('_')) return;
-    file.data.astro ??= {};
-    file.data.astro.frontmatter ??= {};
-    file.data.astro.frontmatter.layout ??= '../layouts/MarkdownPage.astro';
-  };
-}
-
 /** Co-located post images → /_posts/{folder}/{file}. */
 export function remarkRewriteImages() {
   return function (tree, file) {
     const filepath = String(file.history?.[0] || file.path || '').replace(/\\/g, '/');
-    const m = filepath.match(/\/blog\/([^/]+)\//);
+    const m = filepath.match(/\/content\/noticies\/([^/]+)\//);
     if (!m) return;
     const prefix = `/_posts/${m[1]}/`;
     walk(tree, (node) => {

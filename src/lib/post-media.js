@@ -14,7 +14,7 @@ const MEDIA = {
 };
 
 export function blogRoot(cwd = process.cwd()) {
-  return resolve(cwd, 'blog');
+  return resolve(cwd, 'content/noticies');
 }
 
 export function copyPostMedia(destRoot, cwd = process.cwd()) {

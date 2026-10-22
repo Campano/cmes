@@ -1,10 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import data from '../data/events.json';
+import data from '../../content/events.json';
 import { WEEKDAYS, monthCells, onDay, labelMonth, localToday } from '../lib/calendar.js';
-
-const formatDate = (d) =>
-  new Date(d).toLocaleDateString('ca', { dateStyle: 'long', timeZone: 'UTC' });
+import { formatDate } from '../lib/posts.js';
 
 const events = [...data.events]
   .sort((a, b) => a.date.localeCompare(b.date))
@@ -104,7 +102,7 @@ const eventsJson = JSON.stringify(events).replace(/</g, '\\u003c');
 <script>
   import { monthCells, onDay, labelMonth, localToday } from '../lib/calendar.js';
 
-  const events = JSON.parse(document.getElementById('agenda-events').textContent);
+  const events = JSON.parse(document.getElementById('agenda-events')?.textContent || '[]');
   const cal = document.getElementById('cal');
   const calView = document.getElementById('cal-view');
   const listView = document.getElementById('list-view');
@@ -118,7 +116,7 @@ const eventsJson = JSON.stringify(events).replace(/</g, '\\u003c');
     let year = Number(cal.dataset.year);
     let month = Number(cal.dataset.month);
 
-    const setView = (mode) => {
+    const setView = (mode: string) => {
       const isCal = mode === 'cal';
       calView.hidden = !isCal;
       listView.hidden = isCal;
@@ -178,8 +176,10 @@ const eventsJson = JSON.stringify(events).replace(/</g, '\\u003c');
       render();
     });
     cal.addEventListener('click', (ev) => {
-      const a = ev.target.closest('a.cal-event');
-      if (!a || !a.getAttribute('href')?.startsWith('#')) return;
+      const target = ev.target;
+      if (!(target instanceof Element)) return;
+      const a = target.closest('a.cal-event');
+      if (!(a instanceof HTMLAnchorElement) || !a.getAttribute('href')?.startsWith('#')) return;
       ev.preventDefault();
       setView('list');
       document.getElementById(a.hash.slice(1))?.scrollIntoView({ block: 'start' });

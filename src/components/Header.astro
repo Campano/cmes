@@ -1,16 +1,16 @@
 ---
-import { categories } from '../lib/posts.js';
+import { categories, categoryPath, newsPath } from '../lib/posts.js';
 
 const path = Astro.url.pathname;
-const on = (href) => path === href || (href !== '/' && path.startsWith(href));
+const on = (href: string) => path === href || (href !== '/' && path.startsWith(href));
 
 const nav = [
   {
     label: 'Notícies',
-    href: '/blog/',
+    href: newsPath,
     children: [
-      { label: 'Totes les notícies', href: '/blog/' },
-      ...categories.map((c) => ({ label: c.label, href: `/${c.slug}/` })),
+      { label: 'Totes les notícies', href: newsPath },
+      ...categories.map((c) => ({ label: c.label, href: categoryPath(c.slug) })),
     ],
   },
   { label: 'Agenda', href: '/agenda/' },
@@ -19,7 +19,7 @@ const nav = [
   { label: 'Contacte', href: '/contacte/' },
 ];
 const cta = { label: 'Fes-te soci', href: '/fes-te-soci/' };
-const newsOpen = nav[0].children.some((item) => on(item.href));
+const newsOpen = nav[0]?.children?.some((item) => on(item.href)) ?? false;
 ---
 
 <a class="skip" href="#main">Salta al contingut</a>
