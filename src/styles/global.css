@@ -421,6 +421,10 @@ body.nav-open .site-nav {
   background: var(--paper);
 }
 
+.card > img {
+  aspect-ratio: 3 / 2;
+}
+
 .card-ph {
   aspect-ratio: 3 / 2;
   width: 100%;
@@ -481,17 +485,20 @@ body.nav-open .site-nav {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgb(20 18 16 / 18%) 0%, rgb(20 18 16 / 28%) 45%, rgb(20 18 16 / 72%) 100%);
+    radial-gradient(ellipse at center, rgb(20 18 16 / 52%) 0%, rgb(20 18 16 / 32%) 55%, rgb(20 18 16 / 18%) 100%);
 }
 
 .club-brand {
   position: absolute;
-  right: auto;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: 1;
-  max-width: 22rem;
-  padding: 1.25rem var(--space) 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: none;
+  padding: clamp(2rem, 10%, 4.5rem);
+  text-align: center;
 }
 
 .club-logo {
@@ -549,15 +556,8 @@ body.nav-open .site-nav {
     object-fit: cover;
   }
 
-  .club-scrim {
-    background:
-      linear-gradient(270deg, rgb(20 18 16 / 72%) 0%, rgb(20 18 16 / 32%) 48%, rgb(20 18 16 / 8%) 100%);
-  }
-
   .club-brand {
-    right: 0;
-    left: auto;
-    padding: 2rem 2rem 2.25rem;
+    padding: clamp(2.5rem, 12%, 5rem);
   }
 
   .club-logo {

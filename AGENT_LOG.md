@@ -77,3 +77,4 @@
 - Homepage: dropped hikers hero (`club.jpg`). Night Tramuntana (`hero.jpg`) is the opening visual; logo, kicker, lead, Fes-te soci and El club copy share the right column on desktop. Mobile: photo → branding → club text. No empty hero, no overlay. Build OK. Committed on astro, not pushed.
 - Footer Instagram: text link → shared `InstagramLink` icon (same glyph as header, `aria-label="Instagram"`, site.json URL, new tab + rel=noopener). No Facebook/Twitter. Build OK. Committed on astro, not pushed.
 - News covers: `.card img` + `.post-hero img` share `object-fit: contain` (dropped 3/2 box + 28rem crop). Homepage night photo still covers. Build OK. Committed on astro, not pushed.
+- Cards: same-row equal height via 3/2 contain slot + paper letterbox + `.card-body` flex-grow (no cover crop). Homepage overlay centered on the night photo with generous inset; El club copy stays in the text column. Build OK. Committed on astro, not pushed.
