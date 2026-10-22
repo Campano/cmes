@@ -2,6 +2,7 @@
 import site from '../../content/site.json';
 
 const year = new Date().getFullYear();
+const footerSocial = site.social.filter((s) => s.label !== 'Facebook' && s.label !== 'Twitter');
 ---
 
 <footer class="site-footer">
@@ -25,10 +26,7 @@ const year = new Date().getFullYear();
     </div>
     <div>
       <ul class="footer-links">
-        <li><a href="/local-social/">Local social</a></li>
-        <li><a href="/contacte/">Contacte</a></li>
-        <li><a href="/calendari/">Normes</a></li>
-        {site.social.map((s) => (
+        {footerSocial.map((s) => (
           <li><a href={s.href} rel="me noopener">{s.label}</a></li>
         ))}
       </ul>

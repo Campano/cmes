@@ -72,3 +72,5 @@
 - content/: CMS copy moved to repo-root `content/` (`noticies/`, `pages/`, `site.json`, `events.json`). Post URLs `/noticies/{folder}/`; category lists stay `/noticies/{tag}/`. Old list URLs (`/blog/`, `/escalada/`, …) still 301; no per-post redirects. Sveltia folders updated. `npm start` left running.
 - astro (local): El club juntes → one HTML table (càrrecs × 2026/2030…2007/2010, newest first) in `.table-scroll`. Homepage: drop Seccions band + hikers overlay; branding on the night photo (desktop overlay, mobile stacked). Build OK. Committed, not pushed.
   - Junta gaps kept empty: Barranquisme 2026/2030; Socis col·laboradors only 2011/2014. Names as written (Pep Llúis Gómez; Toni Frías vs Frias in fundadors).
+- Header IA: Club first (Informació / Local social / Normes; label → /el-club/), then Notícies, Agenda, Contacte, Fes-te soci + Instagram SVG. Footer dropped Local social, Contacte, Normes, Facebook, Twitter; kept legal, email, Instagram. 301 /club/ → /el-club/.
+- Submenu spacing: more padding/gap on `.drop-menu` (mobile burger + desktop). Build OK. Committed on astro, not pushed.
