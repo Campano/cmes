@@ -25,7 +25,7 @@ export async function check(request, env) {
   }
   const now = Date.now() / 1000;
   if (header.alg !== 'RS256') return 'bad-alg';
-  if (claims.iss !== team) return 'bad-iss';
+  if (claims.iss !== team) return `bad-iss:${team}!=${claims.iss}`;
   if (![claims.aud].flat().includes(env.CF_ACCESS_AUD.trim())) return 'bad-aud';
   if (!(claims.exp > now) || claims.nbf > now + 60) return 'expired';
   let keys;

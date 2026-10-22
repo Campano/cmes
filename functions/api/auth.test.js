@@ -69,6 +69,13 @@ test('check rejects a bad signature', async (t) => {
   assert.equal(await check(request(bad), env), 'bad-sig');
 });
 
+test('check rejects a mismatched issuer and names both sides', async () => {
+  assert.equal(
+    await check(request(sign(claims({iss: 'https://other.cloudflareaccess.com'}))), env),
+    'bad-iss:https://cmes.cloudflareaccess.com!=https://other.cloudflareaccess.com',
+  );
+});
+
 test('check rejects the wrong audience', async () => {
   assert.equal(await check(request(sign(claims({ aud: 'other' }))), env), 'bad-aud');
 });

@@ -6,6 +6,12 @@ backend:
   repo: Campano/cmes
   branch: main
   auth_endpoint: api/auth
+  commit_messages:
+    create: '[cms] Create {{collection}} "{{slug}}"'
+    update: '[cms] Update {{collection}} "{{slug}}"'
+    delete: '[cms] Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[cms] Upload "{{path}}"'
+    deleteMedia: '[cms] Delete "{{path}}"'
 # "Tanca la sessió" also ends the Cloudflare Access session, otherwise reloading /admin/ signs straight back in.
 logout_redirect_url: /cdn-cgi/access/logout
 # UI language follows the browser (Catalan available, English fallback); no `locale` option.

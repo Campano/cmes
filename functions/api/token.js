@@ -4,12 +4,8 @@ import {check} from './auth.js';
 
 export async function onRequestGet({request, env}) {
   // JWT first, so opening /api/token directly in the browser shows the real reason.
-  const site = request.headers.get('Sec-Fetch-Site');
-  const reason = (await check(request, env)) || (site !== 'same-origin' && 'not-same-origin');
-  const headers = {'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'X-Cmes-Reason': reason || 'ok'};
-  // #region agent log
-  console.log('token.js', JSON.stringify({reason: reason || 'ok', site, hasJwt: Boolean(request.headers.get('Cf-Access-Jwt-Assertion')), envPresent: {team: Boolean(env.CF_ACCESS_TEAM_DOMAIN?.trim()), aud: Boolean(env.CF_ACCESS_AUD?.trim()), token: Boolean(env.GITHUB_TOKEN?.trim())}}));
-  // #endregion
+  const reason = (await check(request, env)) || (request.headers.get('Sec-Fetch-Site') !== 'same-origin' && 'not-same-origin');
+  const headers = {'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff'};
   return reason
     ? new Response(`Forbidden: ${reason}`, {status: 403, headers})
     : Response.json({token: env.GITHUB_TOKEN}, {headers});
