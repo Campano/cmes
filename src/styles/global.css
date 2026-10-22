@@ -413,11 +413,17 @@ body.nav-open .site-nav {
 }
 
 .card img,
+.post-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: var(--paper);
+}
+
 .card-ph {
   aspect-ratio: 3 / 2;
   width: 100%;
-  object-fit: cover;
-  object-position: center top;
   background:
     repeating-linear-gradient(
       -12deg,
@@ -722,15 +728,6 @@ body.nav-open .site-nav {
 
 .post-hero {
   margin: 0 0 1.5rem;
-}
-
-.post-hero img {
-  display: block;
-  width: 100%;
-  max-height: 28rem;
-  object-fit: cover;
-  object-position: center top;
-  background: var(--paper-2);
 }
 
 .post-meta {
