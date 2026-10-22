@@ -27,6 +27,7 @@ collections:
   - name: posts
     label: Notícies
     label_singular: Notícia
+    description: Després de **Desa**, el canvi triga uns 1–2 minuts a sortir al web.
     folder: content/noticies
     path: '{{year}}-{{month}}-{{day}}-{{slug}}/index'
     media_folder: ''
@@ -52,6 +53,7 @@ collections:
 
   - name: events
     label: Agenda
+    description: Després de **Desa**, el canvi triga uns 1–2 minuts a sortir al web.
     editor: {preview: false}
     files:
       - name: events
@@ -74,6 +76,7 @@ collections:
 
   - name: pages
     label: Pàgines
+    description: Després de **Desa**, el canvi triga uns 1–2 minuts a sortir al web.
     format: frontmatter
     files:
       - {label: Inici (text del club), name: inici, file: content/pages/_inici.md, fields: [{label: Text, name: body, widget: markdown}]}
@@ -101,6 +104,7 @@ collections:
 
   - name: settings
     label: Configuració
+    description: Després de **Desa**, el canvi triga uns 1–2 minuts a sortir al web.
     editor: {preview: false}
     files:
       - name: site
