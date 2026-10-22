@@ -21,6 +21,8 @@
 - CEO merged cms + ci into local main (29742d3, 8 ahead of origin). Asked for push. Next: step 5, deploy to Cloudflare Pages (Git integration, *.pages.dev) + OAuth app + env vars + Web Analytics + branch protection, then test the real editorial workflow end to end.
 - 09:51 CEO pushed main and installed the Cursor GitHub app → cloud agents work. Launched cloud agent `sveltia` (bc-59f27119): evaluation branch + PR swapping Decap for Sveltia CMS.
 - 10:09 sveltia done → PR #1 (+45/−32, 9 files). Build OK. Recommends switching. Untested: real GitHub login/PR/publish, Safari/Firefox. Proposed D14b (cloud agents push own branches) + D18.
+- 19:03 access-auth done → PR #2 (+81/−89): direct publish to main + Cloudflare Access (email code) + 32-line auth.js verifying the Access JWT, handing over a fine-grained PAT. Tests OK; real Access untested. PR also edits AGENT.md/AGENT_LOG.md → reconcile my local uncommitted notes after the CEO merges.
+- 22:05 PR #3 (draft, +44/−11): skip the Sveltia sign-in by pre-seeding localStorage from /api/token (Access-protected, same-origin only, no-store); logout → Access logout. PR #2 already merged. Waiting for the CEO's merge + production test.
 - CEO round 2 → D9–D14. Waiting on repo URL. Events collection + Google Form link deferred to CMS step (clone worker unaware).
 - CEO answers recorded as D1–D8 in AGENT.md. Open: editor auth option (D5), GitHub repo creation (no `gh` locally).
 - Clone worker (2026-10-20): Docusaurus 3.10.2 (classic, JS, no docs plugin) scaffolded at repo root, dark theme tuned to the CMES palette, self-hosted Poppins/Lato (OFL).

@@ -37,6 +37,8 @@ Non-technical editors → CMS commits straight to main (D19), login via Cloudfla
 | D15 | Media: one folder per post `blog/YYYY-MM-DD-slug/index.md` + images; Decap `path` + `media_folder: ''`; `parseFrontMatter` hook adds `./` to the front-matter image; shared images in static/img | approved |
 | D14b | Cloud agents may push their OWN branch and open a PR; never push/merge main | proposed |
 | D18 | CMS: switch Decap → Sveltia CMS (PR #1, sveltia branch) after a real GitHub login test on pages.dev | proposed |
+| D19 | CMS publishes directly to main (no editorial workflow / PRs); safety = CI + CF keeps last good deploy + git revert | approved |
+| D20 | Editor login: Cloudflare Access (email one-time code) on /admin + /api; function hands CMS a fine-grained repo PAT (bot) after verifying the Access JWT. Replaces GitHub OAuth app (supersedes D5) | approved |
 | D16 | contactFormUrl placeholder OK for now; old /wp-content/uploads links may break | approved |
 | D17 | Legal pages rewritten for the new stack (086852c); CEO/lawyer to review FBME, Google entity, retention | done |
 | D19 | CMS publishes directly to main (no editorial_workflow); safety nets: CI, CF keeps last good deploy, git revert | approved |
