@@ -1,0 +1,87 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import {
+  categories,
+  categoryBySlug,
+  categoryPath,
+  folderOf,
+  formatDate,
+  getPosts,
+  isoDate,
+  newsPath,
+  postsInCategory,
+  slugify,
+} from '../../lib/posts.js';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return [
+    ...posts.map((post) => ({
+      params: { slug: folderOf(post) },
+      props: { kind: 'post', post, category: undefined, posts: [] },
+    })),
+    ...categories.map((category) => ({
+      params: { slug: category.slug },
+      props: { kind: 'category', post: undefined, category, posts: postsInCategory(posts, category.slug) },
+    })),
+  ];
+}
+
+interface Props {
+  kind: 'post' | 'category';
+  post?: Awaited<ReturnType<typeof getPosts>>[number];
+  category?: { label: string; slug: string };
+  posts: Awaited<ReturnType<typeof getPosts>>;
+}
+
+const { kind, post, category, posts }: Props = Astro.props;
+const current = category ? (categoryBySlug(Astro.params.slug) ?? category) : undefined;
+const rendered = post ? await render(post) : undefined;
+const Content = rendered?.Content;
+---
+
+{kind === 'post' && post && Content ? (
+  <Base
+    title={post.data.title}
+    description={post.data.description || post.data.title}
+    image={post.imageUrl}
+  >
+    {post.imageUrl && (
+      <div class="post-hero">
+        <img src={post.imageUrl} alt="" width="1400" height="780" />
+      </div>
+    )}
+    <article class="band">
+      <div class="wrap prose">
+        <p class="post-meta">
+          <time datetime={isoDate(post.data.date)}>{formatDate(post.data.date)}</time>
+          {post.data.tags.map((tag) => (
+            <a href={categoryPath(slugify(tag))}>{tag}</a>
+          ))}
+        </p>
+        <h1>{post.data.title}</h1>
+        <Content />
+      </div>
+    </article>
+  </Base>
+) : current ? (
+  <Base title={current.label} description={`Notícies de ${current.label} del CMES.`}>
+    <section class="band">
+      <div class="wrap">
+        <div class="band-head">
+          <h1 class="page-title">{current.label}</h1>
+          <a class="more" href={newsPath}>Totes les notícies</a>
+        </div>
+        {posts.length ? (
+          <div class="cards cards-3">
+            {posts.map((p) => <PostCard post={p} />)}
+          </div>
+        ) : (
+          <p class="empty">Encara no hi ha notícies en aquesta secció.</p>
+        )}
+      </div>
+    </section>
+  </Base>
+) : null}

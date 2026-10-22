@@ -1,0 +1,124 @@
+# Sveltia CMS – https://sveltiacms.app/en/docs/config-basics
+# backend.base_url = the site origin, set in index.html; login: functions/api/auth.js (Cloudflare Access).
+# No publish_mode: "Desa" commits straight to main (D19).
+backend:
+  name: github
+  repo: Campano/cmes
+  branch: main
+  auth_endpoint: api/auth
+# "Tanca la sessió" also ends the Cloudflare Access session, otherwise reloading /admin/ signs straight back in.
+logout_redirect_url: /cdn-cgi/access/logout
+# UI language follows the browser (Catalan available, English fallback); no `locale` option.
+# Leave empty optional fields out: an empty `image` would be a broken cover path.
+output: {omit_empty_optional_fields: true}
+media_folder: public/img
+public_folder: /img
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: posts
+    label: Notícies
+    label_singular: Notícia
+    folder: content/noticies
+    path: '{{year}}-{{month}}-{{day}}-{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    create: true
+    format: frontmatter
+    extension: md
+    summary: "{{date | date('YYYY-MM-DD')}} · {{title}}"
+    sortable_fields: {fields: [date, title], default: {field: date, direction: descending}}
+    fields:
+      - {label: Títol, name: title, widget: string}
+      - {label: Data, name: date, widget: datetime, format: 'YYYY-MM-DDTHH:mm:ss', default: '{{now}}'}
+      - label: Categories
+        name: tags
+        widget: select
+        multiple: true
+        min: 1
+        options: [Actualitat, Barranquisme, Curses per muntanya, Escalada, Senderisme]
+        hint: L'adreça és /noticies/ més el nom de la carpeta (data-títol). La primera categoria no hi surt.
+      - {label: Imatge destacada, name: image, widget: image, required: false}
+      - {label: Resum, name: description, widget: text, required: false, hint: Una o dues frases per a cercadors i xarxes socials.}
+      - {label: Text, name: body, widget: markdown, hint: 'Retorn fa un paràgraf nou. Maj+Retorn no es veu al web.'}
+
+  - name: events
+    label: Agenda
+    editor: {preview: false}
+    files:
+      - name: events
+        label: Activitats
+        file: content/events.json
+        format: json
+        fields:
+          - label: Activitats
+            name: events
+            widget: list
+            summary: '{{fields.date}} · {{fields.title}}'
+            fields:
+              - {label: Títol, name: title, widget: string}
+              - {label: Data, name: date, widget: datetime, format: YYYY-MM-DD, time_format: false}
+              - {label: Data final, name: endDate, widget: datetime, format: YYYY-MM-DD, time_format: false, required: false, hint: Només si dura més d'un dia.}
+              - {label: Lloc, name: place, widget: string, required: false}
+              - {label: Secció, name: section, widget: select, required: false, options: [Club, Barranquisme, Curses per muntanya, Escalada, Senderisme]}
+              - {label: Descripció, name: description, widget: text, required: false}
+              - {label: Enllaç, name: link, widget: string, required: false, hint: "Inscripcions o més informació (https://…)."}
+
+  - name: pages
+    label: Pàgines
+    format: frontmatter
+    files:
+      - {label: Inici (text del club), name: inici, file: content/pages/_inici.md, fields: [{label: Text, name: body, widget: markdown}]}
+      - label: Local social
+        name: local-social
+        file: content/pages/local-social.md
+        fields: &md
+          - {label: Títol, name: title, widget: string}
+          - {label: Descripció, name: description, widget: string, required: false}
+          - {label: Text, name: body, widget: markdown}
+      - {label: Calendari (normes), name: calendari, file: content/pages/calendari.md, fields: *md}
+      # .mdx pages: raw markdown only, so <Site field="…" /> tags stay intact.
+      - label: El club
+        name: el-club
+        file: content/pages/el-club.mdx
+        fields: &mdx
+          - {label: Títol, name: title, widget: string}
+          - {label: Descripció, name: description, widget: string, required: false}
+          - {label: Text, name: body, widget: markdown, modes: [raw], hint: 'Les etiquetes <Site field="…" /> mostren dades de la configuració.'}
+      - {label: Fes-te soci, name: fes-te-soci, file: content/pages/fes-te-soci.mdx, fields: *mdx}
+      - {label: Contacte, name: contacte, file: content/pages/contacte.mdx, fields: *mdx}
+      - {label: Avís legal, name: avis-legal, file: content/pages/avis-legal.md, fields: *md}
+      - {label: Política de privacitat, name: politica-de-privacitat, file: content/pages/politica-de-privacitat.md, fields: *md}
+      - {label: Política de cookies, name: politica-de-cookies, file: content/pages/politica-de-cookies.md, fields: *md}
+
+  - name: settings
+    label: Configuració
+    editor: {preview: false}
+    files:
+      - name: site
+        label: Dades del club
+        file: content/site.json
+        format: json
+        fields:
+          - {label: Nom del web, name: title, widget: string}
+          - {label: Lema, name: tagline, widget: string}
+          - {label: Correu electrònic, name: email, widget: string}
+          - {label: Formulari de contacte (URL), name: contactFormUrl, widget: string}
+          - {label: Adreça, name: address, widget: string}
+          - {label: NIF, name: nif, widget: string}
+          - {label: Banc, name: bank, widget: string}
+          - {label: IBAN, name: iban, widget: string}
+          - label: Xarxes socials
+            name: social
+            widget: list
+            fields:
+              - {label: Nom, name: label, widget: string}
+              - {label: Enllaç, name: href, widget: string}
+          - label: Seccions (menú i portada)
+            name: sections
+            widget: list
+            fields:
+              - {label: Nom, name: label, widget: string}
+              - {label: Adreça, name: to, widget: string, hint: 'Pàgina de la categoria, p. ex. /noticies/senderisme/'}

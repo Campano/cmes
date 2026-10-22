@@ -2,24 +2,28 @@
   "name": "cmes",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
-  },
-  "dependencies": {
-    "@docusaurus/core": "3.10.2",
-    "@docusaurus/preset-classic": "3.10.2",
-    "@mdx-js/react": "^3.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-  },
-  "browserslist": {
-    "production": [">0.5%", "not dead", "not op_mini all"],
-    "development": ["last 3 chrome version", "last 3 firefox version", "last 5 safari version"]
+    "start": "astro dev",
+    "dev": "astro dev",
+    "build": "astro build && node scripts/check-links.mjs",
+    "preview": "astro preview",
+    "serve": "astro preview",
+    "test": "node --test",
+    "check": "astro check"
   },
   "engines": {
     "node": ">=20.0"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.4",
+    "@astrojs/mdx": "^8.1.1",
+    "@fontsource-variable/source-sans-3": "^5.3.1",
+    "@fontsource-variable/syne": "^5.3.0",
+    "astro": "^7.4.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "^6.0.3"
   }
 }

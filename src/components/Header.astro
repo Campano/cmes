@@ -1,0 +1,100 @@
+---
+import { categories, categoryPath, newsPath } from '../lib/posts.js';
+import InstagramLink from './InstagramLink.astro';
+
+const path = Astro.url.pathname;
+const on = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+
+const nav = [
+  {
+    label: 'Club',
+    href: '/el-club/',
+    children: [
+      { label: 'Informació', href: '/el-club/' },
+      { label: 'Local social', href: '/local-social/' },
+      { label: 'Normes', href: '/calendari/' },
+    ],
+  },
+  {
+    label: 'Notícies',
+    href: newsPath,
+    children: [
+      { label: 'Totes les notícies', href: newsPath },
+      ...categories.map((c) => ({ label: c.label, href: categoryPath(c.slug) })),
+    ],
+  },
+  { label: 'Agenda', href: '/agenda/' },
+  { label: 'Contacte', href: '/contacte/' },
+];
+const cta = { label: 'Fes-te soci', href: '/fes-te-soci/' };
+const dropOpen = (item: { children?: { href: string }[] }) =>
+  item.children?.some((child) => on(child.href)) ?? false;
+---
+
+<a class="skip" href="#main">Salta al contingut</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="/">
+      <img src="/img/logo.png" alt="CMES, Club de Muntanya i Escalada Sóller" width="220" height="48" />
+    </a>
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-controls="site-nav"
+      aria-expanded="false"
+      aria-label="Obre el menú"
+    >
+      <span></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Principal">
+      {nav.map((item) =>
+        item.children ? (
+          <div class="drop">
+            <a href={item.href} class="drop-trigger" aria-current={dropOpen(item) ? 'page' : undefined}>
+              {item.label}
+            </a>
+            <ul class="drop-menu">
+              {item.children.map((child) => (
+                <li>
+                  <a href={child.href} aria-current={path === child.href ? 'page' : undefined}>
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <a href={item.href} aria-current={on(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        )
+      )}
+      <a class="nav-cta" href={cta.href} aria-current={on(cta.href) ? 'page' : undefined}>{cta.label}</a>
+      <InstagramLink class="nav-ig" />
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    const close = () => {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Obre el menú');
+      document.body.classList.remove('nav-open');
+    };
+    const open = () => {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Tanca el menú');
+      document.body.classList.add('nav-open');
+    };
+    btn.addEventListener('click', () => (btn.getAttribute('aria-expanded') === 'true' ? close() : open()));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    matchMedia('(min-width: 1024px)').addEventListener('change', close);
+  })();
+</script>

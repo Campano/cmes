@@ -1,0 +1,13 @@
+# Cloudflare Pages redirects for old WordPress URLs.
+/feed/                               /rss.xml               301
+/club/                               /el-club/              301
+/inici/                              /                      301
+/politica-de-privacidad/             /politica-de-privacitat/ 301
+/preferencies-de-cookies/            /                      301
+/blog/                               /noticies/             301
+/blog                                /noticies/             301
+/actualitat/                         /noticies/actualitat/  301
+/barranquisme/                       /noticies/barranquisme/ 301
+/curses-per-muntanya/                /noticies/curses-per-muntanya/ 301
+/escalada/                           /noticies/escalada/    301
+/senderisme/                         /noticies/senderisme/  301

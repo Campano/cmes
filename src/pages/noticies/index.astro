@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts } from '../../lib/posts.js';
+
+const posts = await getPosts();
+---
+
+<Base title="Totes les notícies" description="Totes les notícies del CMES.">
+  <section class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <h1 class="page-title">Totes les notícies</h1>
+      </div>
+      <div class="cards cards-3">
+        {posts.map((post) => <PostCard post={post} />)}
+      </div>
+    </div>
+  </section>
+</Base>
