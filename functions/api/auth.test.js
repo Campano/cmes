@@ -78,5 +78,5 @@ test('check rejects an expired token', async () => {
 });
 
 test('check reports a missing env var', async () => {
-  assert.equal(await check(request('a.b.c'), {}), 'no-env:CF_ACCESS_TEAM_DOMAIN');
+  assert.equal(await check(request('a.b.c'), {}), 'no-env:CF_ACCESS_TEAM_DOMAIN,CF_ACCESS_AUD,GITHUB_TOKEN');
 });

@@ -15,12 +15,13 @@ npm run serve      # preview the build (also at :3000)
 |---|---|
 | Framework preset | Astro |
 | Build command | `npm run build` |
-| Output directory | `dist` (the dashboard must not still say `build` from Docusaurus) |
+| Output directory | `dist` (or leave `build`: the build copies `dist` → `build` on Pages) |
 | Node version | `.nvmrc` (24) |
 
 Keep the project **static** (`dist` + root `functions/`). Do not add the Astro Cloudflare adapter: Access auth lives in `functions/api/*` as Pages Functions.
+Do not add `wrangler.toml`: it moves env vars out of the dashboard and Functions then miss `CF_ACCESS_*` / `GITHUB_TOKEN`.
 
-Auth env vars are unchanged: `GITHUB_TOKEN`, `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUD` (Production only).
+Auth env vars stay in the dashboard (Production): `GITHUB_TOKEN`, `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUD`.
 
 ## Content
 

@@ -11,7 +11,8 @@ export const teamUrl = (t = '') => {
 
 // '' if the request carries a valid Access JWT, else a short reason code (safe to show: no secrets, no JWT contents).
 export async function check(request, env) {
-  for (const k of ['CF_ACCESS_TEAM_DOMAIN', 'CF_ACCESS_AUD', 'GITHUB_TOKEN']) if (!env[k]?.trim()) return `no-env:${k}`;
+  const missing = ['CF_ACCESS_TEAM_DOMAIN', 'CF_ACCESS_AUD', 'GITHUB_TOKEN'].filter((k) => !env[k]?.trim());
+  if (missing.length) return `no-env:${missing.join(',')}`;
   const jwt = request.headers.get('Cf-Access-Jwt-Assertion');
   if (!jwt) return 'no-jwt';
   const team = teamUrl(env.CF_ACCESS_TEAM_DOMAIN);
