@@ -1,0 +1,20 @@
+---
+import { formatDate, isoDate } from '../lib/posts.js';
+
+const { post } = Astro.props;
+---
+
+<a class="card" href={post.permalink}>
+  {post.imageUrl ? (
+    <img src={post.imageUrl} alt="" width="720" height="480" loading="lazy" decoding="async" />
+  ) : (
+    <div class="card-ph" aria-hidden="true" />
+  )}
+  <div class="card-body">
+    <p class="card-meta">
+      <time datetime={isoDate(post.data.date)}>{formatDate(post.data.date)}</time>
+      {post.data.tags[0] && <span>{post.data.tags[0]}</span>}
+    </p>
+    <h2 class="card-title">{post.data.title}</h2>
+  </div>
+</a>

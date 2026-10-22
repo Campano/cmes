@@ -9,9 +9,9 @@ backend:
 # "Tanca la sessió" also ends the Cloudflare Access session, otherwise reloading /admin/ signs straight back in.
 logout_redirect_url: /cdn-cgi/access/logout
 # UI language follows the browser (Catalan available, English fallback); no `locale` option.
-# Leave empty optional fields out: an empty `image` would become `./` in parseFrontMatter.
+# Leave empty optional fields out: an empty `image` would be a broken cover path.
 output: {omit_empty_optional_fields: true}
-media_folder: static/img
+media_folder: public/img
 public_folder: /img
 slug:
   encoding: ascii
@@ -42,7 +42,7 @@ collections:
         hint: La primera categoria forma part de l'adreça de la notícia (/categoria/titol/).
       - {label: Imatge destacada, name: image, widget: image, required: false}
       - {label: Resum, name: description, widget: text, required: false, hint: Una o dues frases per a cercadors i xarxes socials.}
-      # Existing posts keep their WordPress URL; new posts get it from the first category (docusaurus.config.js).
+      # Existing posts keep their WordPress URL; new posts get it from the first category (src/lib/posts.js).
       - {label: Adreça, name: slug, widget: hidden}
       - {label: Text, name: body, widget: markdown, hint: 'La línia <!-- truncate --> marca on acaba el resum de la portada: no l''esborris.'}
 

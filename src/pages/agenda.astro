@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import data from '../data/events.json';
+
+const formatDate = (d) =>
+  new Date(d).toLocaleDateString('ca', { dateStyle: 'long', timeZone: 'UTC' });
+
+const events = [...data.events].sort((a, b) => a.date.localeCompare(b.date));
+---
+
+<Base title="Agenda" description="Properes activitats del CMES.">
+  <section class="band">
+    <div class="wrap prose">
+      <h1>Agenda</h1>
+      <div id="upcoming" class="agenda-list">
+        {events.map((e) => (
+          <article class="event" data-end={e.endDate || e.date}>
+            <h2>{e.link ? <a href={e.link}>{e.title}</a> : e.title}</h2>
+            <p class="event-meta">
+              <strong>
+                {formatDate(e.date)}
+                {e.endDate && ` – ${formatDate(e.endDate)}`}
+              </strong>
+              {[e.place, e.section].filter(Boolean).map((s) => ` · ${s}`)}
+            </p>
+            {e.description && <p>{e.description}</p>}
+          </article>
+        ))}
+      </div>
+      <p id="no-upcoming" class="empty" hidden>Ara mateix no hi ha activitats programades. Torna-hi aviat!</p>
+      <details id="past-wrap" class="agenda-past" hidden>
+        <summary>Activitats passades</summary>
+        <div id="past" class="agenda-list"></div>
+      </details>
+      <p>
+        Consulta les <a href="/calendari/">normes de participació</a> a les activitats.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<script is:inline>
+  (() => {
+    const today = new Date().toISOString().slice(0, 10);
+    const upcoming = document.getElementById('upcoming');
+    const past = document.getElementById('past');
+    const pastWrap = document.getElementById('past-wrap');
+    const empty = document.getElementById('no-upcoming');
+    if (!upcoming || !past || !pastWrap || !empty) return;
+    [...upcoming.querySelectorAll('.event')].forEach((el) => {
+      if ((el.getAttribute('data-end') || '') < today) past.append(el);
+    });
+    if (past.children.length) pastWrap.hidden = false;
+    if (!upcoming.querySelector('.event')) empty.hidden = false;
+  })();
+</script>

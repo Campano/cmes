@@ -16,7 +16,7 @@ El local social del Club de Muntanya i Escalada Sóller (CMES) es troba situat a
 - Dijous: 18 a 20 hores
 - Divendres: 9 a 10:30 hores
 
-[Normativa d'usos del local social (PDF)](pathname:///img/reglament-local-social.pdf)
+[Normativa d'usos del local social (PDF)](/img/reglament-local-social.pdf)
 
 ![](/img/pages/CMES-Local-Social-3.jpg)
 ![](/img/pages/CMES-Local-Social-6.jpg)

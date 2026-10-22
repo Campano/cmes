@@ -1,0 +1,65 @@
+---
+import { categories } from '../lib/posts.js';
+
+const path = Astro.url.pathname;
+const on = (href) => path === href || (href !== '/' && path.startsWith(href));
+const sectionsOpen = path === '/blog/' || categories.some((c) => path.startsWith(`/${c.slug}/`));
+---
+
+<a class="skip" href="#main">Salta al contingut</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="/">
+      <img src="/img/logo.png" alt="CMES, Club de Muntanya i Escalada Sóller" width="220" height="48" />
+    </a>
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-controls="site-nav"
+      aria-expanded="false"
+      aria-label="Obre el menú"
+    >
+      <span></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Principal">
+      <div class="drop">
+        <a href="/blog/" class="drop-trigger" aria-current={sectionsOpen ? 'page' : undefined}>Seccions</a>
+        <ul class="drop-menu">
+          <li><a href="/blog/" aria-current={path === '/blog/' ? 'page' : undefined}>Totes les notícies</a></li>
+          {categories.map((c) => (
+            <li>
+              <a href={`/${c.slug}/`} aria-current={path === `/${c.slug}/` ? 'page' : undefined}>{c.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <a href="/agenda/" aria-current={on('/agenda/') ? 'page' : undefined}>Agenda</a>
+      <a href="/el-club/" aria-current={on('/el-club/') ? 'page' : undefined}>El club</a>
+      <a class="nav-cta" href="/fes-te-soci/" aria-current={on('/fes-te-soci/') ? 'page' : undefined}>Fes-te soci</a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    const close = () => {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Obre el menú');
+      document.body.classList.remove('nav-open');
+    };
+    const open = () => {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Tanca el menú');
+      document.body.classList.add('nav-open');
+    };
+    btn.addEventListener('click', () => (btn.getAttribute('aria-expanded') === 'true' ? close() : open()));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    matchMedia('(min-width: 860px)').addEventListener('change', close);
+  })();
+</script>

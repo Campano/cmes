@@ -1,13 +1,26 @@
 # CMES – cmesoller.com
 
-Website of the Club de Muntanya i Escalada Sóller, built with [Docusaurus](https://docusaurus.io/).
+Website of the Club de Muntanya i Escalada Sóller, built with [Astro](https://astro.build/).
 
 ```sh
 npm install
 npm start          # dev server at http://localhost:3000
-npm run build      # static site in build/
-npm run serve      # preview the build
+npm run build      # static site in dist/ (fails on broken internal links)
+npm run serve      # preview the build (also at :3000)
 ```
+
+## Cloudflare Pages
+
+| Setting | Value |
+|---|---|
+| Framework preset | Astro |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Node version | `.nvmrc` (24) |
+
+Keep the project **static** (`dist` + root `functions/`). Do not add the Astro Cloudflare adapter: Access auth lives in `functions/api/*` as Pages Functions.
+
+Auth env vars are unchanged: `GITHUB_TOKEN`, `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUD` (Production only).
 
 ## Content
 
@@ -16,20 +29,19 @@ npm run serve      # preview the build
 | News posts, one folder each with its images (`cover.jpg` = featured image) | `blog/YYYY-MM-DD-slug/index.md` |
 | Pages (URL = file name) | `src/pages/` |
 | Home intro text | `src/pages/_inici.md` |
-| Shared images and files (logo, page photos, PDF) | `static/img/` |
+| Shared images and files (logo, page photos, PDF) | `public/img/` |
 | Site settings (email, address, IBAN, contact form URL, social links, sections) | `src/data/site.json` |
-| Redirects for old WordPress URLs (Cloudflare Pages) | `static/_redirects` |
-
+| Redirects for old WordPress URLs (Cloudflare Pages) | `public/_redirects` |
 | Agenda events (page `/agenda/`, past events collapsed) | `src/data/events.json` |
 
 In `.mdx` pages, `<Site field="email" />` prints a value from `src/data/site.json`.
 Post categories are tags; each one has an archive page at `/{category}/`.
 A post's URL comes from its front matter `slug`; without one (new CMS posts) it is
-`/{first tag}/{folder name without the date}/` (`parseFrontMatter` in `docusaurus.config.js`).
+`/{first tag}/{folder name without the date}/` (`permalinkOf` in `src/lib/posts.js`).
 
 ## CMS (Sveltia)
 
-Editors use [Sveltia CMS](https://sveltiacms.app/) at `/admin/` (`static/admin/`, loaded from a pinned CDN with SRI, no npm dependency).
+Editors use [Sveltia CMS](https://sveltiacms.app/) at `/admin/` (`public/admin/`, loaded from a pinned CDN with SRI, no npm dependency).
 **Desa** commits straight to `main` and the site redeploys in 1–2 minutes; the editor guide is [docs/guia-editors.md](docs/guia-editors.md).
 Safety nets: CI on every push, Cloudflare keeps serving the last good deployment if a build fails, and `git revert`.
 Editors need no GitHub account: [Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/applications/) (one-time PIN
@@ -37,7 +49,7 @@ by email) protects `/admin/` and `/api/`. `/admin/index.html` then fetches a sha
 (same-origin only, never cached) and stores it as Sveltia's session, so the CMS opens without its own sign-in screen.
 Both `token.js` and the fallback **Inicia la sessió amb GitHub** popup (`functions/api/auth.js`) check the Access JWT again
 (signature, `aud`, `iss`, expiry). **Tanca la sessió** also logs out of Access.
-To upgrade Sveltia, bump the version in `static/admin/index.html` and recompute the SRI hash:
+To upgrade Sveltia, bump the version in `public/admin/index.html` and recompute the SRI hash:
 `curl -sL <script URL> | openssl dgst -sha384 -binary | openssl base64 -A`.
 After every Sveltia upgrade, check the `sveltia-cms.user` session key: `/admin/` must still open without the sign-in button.
 
@@ -82,4 +94,4 @@ TODO: replace the placeholder `contactFormUrl` in `src/data/site.json` with the 
 
 ## CI
 
-GitHub Actions (`.github/workflows/ci.yml`) runs `npm ci && npm run build` on every PR and push to `main`; broken links or images fail the build. Cloudflare Pages deploys (production from `main`, previews for PRs). The Node version lives in `.nvmrc`.
+GitHub Actions (`.github/workflows/ci.yml`) runs `npm ci && npm run build` on every PR and push to `main`; broken internal links fail the build. Cloudflare Pages deploys (production from `main`, previews for PRs). The Node version lives in `.nvmrc`.

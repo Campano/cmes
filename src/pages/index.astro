@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import Intro from './_inici.md';
+import { getPosts } from '../lib/posts.js';
+import site from '../data/site.json';
+
+const posts = (await getPosts()).slice(0, 6);
+const numbered = site.sections.map((s, i) => ({
+  ...s,
+  n: String(i + 1).padStart(2, '0'),
+}));
+---
+
+<Base description={site.tagline} image="/img/club.jpg">
+  <section class="hero">
+    <img
+      class="hero-img"
+      src="/img/club.jpg"
+      alt="Socis del CMES caminant per un cingle de la Serra de Tramuntana, sobre la mar"
+      width="1920"
+      height="1080"
+    />
+    <div class="hero-scrim"></div>
+    <div class="hero-inner wrap">
+      <img
+        class="hero-logo"
+        src="/img/logo.png"
+        alt="CMES, Club de Muntanya i Escalada Sóller"
+        width="440"
+        height="96"
+      />
+      <p class="hero-kicker">Serra de Tramuntana · Sóller</p>
+      <p class="hero-lead">Senderisme, barranquisme, escalada i curses per muntanya.</p>
+      <a class="btn btn-accent" href="/fes-te-soci/">Fes-te soci</a>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="seccions-title">
+    <div class="wrap">
+      <div class="band-head">
+        <h2 id="seccions-title">Seccions</h2>
+      </div>
+      <div class="sections">
+        {numbered.map((s) => (
+          <a href={s.to}>
+            <small>{s.n}</small>
+            {s.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="club" aria-labelledby="club-title">
+    <div class="club-photo">
+      <img
+        src="/img/hero.jpg"
+        alt="La vall de Sóller de nit des d'un cim de la Serra de Tramuntana"
+        width="1600"
+        height="900"
+      />
+    </div>
+    <div class="club-copy">
+      <h2 id="club-title">El club</h2>
+      <Intro />
+      <a class="more" href="/el-club/">Coneix el club</a>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="news-title">
+    <div class="wrap">
+      <div class="band-head">
+        <h2 id="news-title">Actualitat</h2>
+        <a class="more" href="/blog/">Totes les notícies</a>
+      </div>
+      <div class="cards cards-3">
+        {posts.map((post) => <PostCard post={post} />)}
+      </div>
+    </div>
+  </section>
+</Base>

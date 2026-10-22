@@ -1,0 +1,42 @@
+---
+import site from '../data/site.json';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="carabiner" viewBox="0 0 24 34" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square">
+            <path d="M8 11V7.2A4.2 4.2 0 0 1 16.4 7v4" />
+            <rect x="6" y="11" width="12" height="18" rx="6" />
+          </g>
+        </svg>
+        <img src="/img/logo.png" alt="" width="160" height="36" />
+      </div>
+      <p class="footer-copy">
+        © {year} CMES – {site.tagline}<br />
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        {' · '}{site.address}<br />
+        Fotografia: Guiem Raja Fotografia i Vídeo
+      </p>
+    </div>
+    <div>
+      <ul class="footer-links">
+        <li><a href="/local-social/">Local social</a></li>
+        <li><a href="/contacte/">Contacte</a></li>
+        <li><a href="/calendari/">Normes</a></li>
+        {site.social.map((s) => (
+          <li><a href={s.href} rel="me noopener">{s.label}</a></li>
+        ))}
+      </ul>
+      <ul class="footer-legal">
+        <li><a href="/avis-legal/">Avís legal</a></li>
+        <li><a href="/politica-de-privacitat/">Política de privacitat</a></li>
+        <li><a href="/politica-de-cookies/">Política de cookies</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

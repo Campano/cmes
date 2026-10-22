@@ -61,3 +61,8 @@
   - Risk: `sveltia-cms.user` is internal (stable since 2023) → re-check on every Sveltia upgrade (README). Untested: real Access on pages.dev.
 - auth-debug (cloud, branch `auth-debug`): no crypto bug in the JWT check (header, certs URL, RS256, aud array, unpadded base64url all OK); likely cause = config. Added `teamUrl()` (accepts `team`, `team.cloudflareaccess.com`, `https://…/`), trims AUD, adds the missing `nbf` check, and `check()` returns a safe reason code shown in `/api/token`'s 403 body, the auth.js popup and the console (codes in README).
   - Tested: throwaway Node unit (real RSA key, mocked certs: every code, 3 team formats, no secrets/JWT in errors); build OK. Untested: real Access → CEO opens `/api/token` after deploy and reads the code.
+
+## 2026-10-22
+- astro (cloud, branch `astro`, PR "Astro redesign (evaluation)"): Docusaurus 3.10.2 removed; static Astro 7.4 + `@astrojs/mdx` + `@astrojs/markdown-remark`. 51 posts keep `/{category}/{slug}/`; Sveltia stays at `/admin/` (`public/admin`, `functions/api/*` unchanged). Shared media `static/img` → `public/img` (CMS `media_folder` only).
+  - Design: warm paper `#f4efe4` + black chrome + red accent; Syne + Source Sans 3 (Fontsource); hikers hero, contour footer, tiny carabiner. No Tailwind. Pages `dist/`; `npm run build` throws on broken internal links.
+  - Verified: `npm ci && npm run build`; Chrome 1280 and 390px (home, post, category, agenda, fes-te-soci, /admin/ loads Sveltia). Screenshots `docs/astro-preview/`. Open: merge this eval vs stay on Docusaurus; `contactFormUrl`; `[PROVA]` events; address s/n vs 27.
