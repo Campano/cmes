@@ -55,7 +55,7 @@ Non-technical editors → CMS commits straight to main (D19), login via Cloudfla
 | D18 | CMS: Sveltia CMS replaces Decap (PR #1 https://github.com/Campano/cmes/pull/1). Real GitHub login tested at deploy | approved |
 
 ## Current site
-Static Astro 7 + Sveltia CMS. CMS copy lives in `content/` (news `content/noticies/`, pages `content/pages/`, `site.json`, `events.json`). Post URLs are `/noticies/{folder}/`; category lists `/noticies/{tag}/`. Shared images in `public/img/`. Editor login is Cloudflare Access (`functions/api/`).
+Static Astro 7 + Sveltia CMS. CMS copy lives in `content/` (news `content/noticies/`, pages `content/pages/`, `site.json`). `/calendari/` embeds Google Calendar (`calendarEmbedUrl`). Post URLs are `/noticies/{folder}/`; category lists `/noticies/{tag}/`. Shared images in `public/img/`. Editor login is Cloudflare Access (`functions/api/`).
 
 The WordPress site being replaced is inventoried in docs/audit.md.
 RISK: MX is on the same shared host as the current website — recreate mail records before cutover.
@@ -65,7 +65,7 @@ RISK: MX is on the same shared host as the current website — recreate mail rec
 - Contact: Google Form link (D10). Analytics: CF Web Analytics at deploy (D11).
 
 ## Open before launch
-- `content/events.json` is six `[PROVA]` sample events. Clear them before the agenda goes live.
+- `content/events.json` is leftover from the old CMS calendar (unused); safe to delete when convenient.
 - Address: legal pages say "Carrer de Xaloc, s/n"; `site.json` says "27" (Q1, pending CEO).
 
 ## Team

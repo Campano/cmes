@@ -29,13 +29,14 @@
 
 ## Calendari, pàgines i configuració
 
-- **Calendari**: afegeix activitats (títol, data, lloc...). Les passades s'amaguen soles.
+- **Calendari**: les activitats es gestionen al Google Calendar del club (no al gestor del web).
+  L’URL d’incrustació és a **Configuració**.
 - **Participació** (Pàgines): com apuntar-se i requisits; canvia el text quan calgui.
 - **Pàgines**: textos fixos (Informació, Equip, Local social...). A les pàgines amb
   `<Site field="..." />` no esborris aquestes etiquetes: mostren dades de **Configuració**.
   `<Copy text="..." />` mostra el text (estil codi) amb un botó de porta-retalls (p. ex. l’IBAN a Fes-te soci).
   A **Equip**, les fotos van a `public/img/equip/` (substituïu el placeholder a l'MDX).
-- **Configuració**: correu, adreça, IBAN, URLs del formulari de contacte (curta i incrustada), xarxes.
+- **Configuració**: correu, adreça, IBAN, URLs del formulari de contacte i del calendari, xarxes.
 
 ## Publicar i desfer
 

@@ -34,7 +34,7 @@ Auth env vars stay in the dashboard (Production): `GITHUB_TOKEN`, `CF_ACCESS_TEA
 | PDFs (estatuts, reglament…) | `public/docs/` |
 | Site settings (email, address, IBAN, contact form URLs, social links, sections) | `content/site.json` |
 | Redirects for old WordPress URLs (Cloudflare Pages) | `public/_redirects` |
-| Calendar events (page `/calendari/`, past events collapsed) | `content/events.json` |
+| Google Calendar embed URL (`/calendari/`) | `content/site.json` → `calendarEmbedUrl` |
 
 In `.mdx` pages, `<Site field="email" />` prints a value from `content/site.json` (Vite rewrite).
 `<Copy text="…" />` is an MDX component (`src/components/Copy.astro`) with a copy button (optional `label="…"`).

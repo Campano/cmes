@@ -51,29 +51,6 @@ collections:
       - {label: Resum, name: description, widget: text, required: false, hint: Una o dues frases per a cercadors i xarxes socials.}
       - {label: Text, name: body, widget: markdown, hint: 'Retorn fa un paràgraf nou. Maj+Retorn no es veu al web.'}
 
-  - name: events
-    label: Calendari
-    description: Després de **Desa**, el canvi triga uns 1–2 minuts a sortir al web.
-    editor: {preview: false}
-    files:
-      - name: events
-        label: Activitats
-        file: content/events.json
-        format: json
-        fields:
-          - label: Activitats
-            name: events
-            widget: list
-            summary: '{{fields.date}} · {{fields.title}}'
-            fields:
-              - {label: Títol, name: title, widget: string}
-              - {label: Data, name: date, widget: datetime, format: YYYY-MM-DD, time_format: false}
-              - {label: Data final, name: endDate, widget: datetime, format: YYYY-MM-DD, time_format: false, required: false, hint: Només si dura més d'un dia.}
-              - {label: Lloc, name: place, widget: string, required: false}
-              - {label: Secció, name: section, widget: select, required: false, options: [Club, Barranquisme, Curses per muntanya, Escalada, Senderisme]}
-              - {label: Descripció, name: description, widget: text, required: false}
-              - {label: Enllaç, name: link, widget: string, required: false, hint: "Inscripcions o més informació (https://…)."}
-
   - name: pages
     label: Pàgines
     description: Després de **Desa**, el canvi triga uns 1–2 minuts a sortir al web.
@@ -119,6 +96,7 @@ collections:
           - {label: Correu electrònic, name: email, widget: string}
           - {label: Formulari de contacte (URL curta), name: contactFormUrl, widget: string, hint: 'Enllaç forms.gle per obrir en pestanya nova.'}
           - {label: Formulari de contacte (incrustat), name: contactFormEmbedUrl, widget: string, hint: 'URL docs.google.com/.../viewform?embedded=true (Google → Envia → Incrustar).'}
+          - {label: Calendari (incrustat), name: calendarEmbedUrl, widget: string, hint: 'URL calendar.google.com/calendar/embed?... (Google Calendar → Configuració → Integrar calendari).'}
           - {label: Adreça, name: address, widget: string}
           - {label: NIF, name: nif, widget: string}
           - {label: Banc, name: bank, widget: string}
