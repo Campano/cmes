@@ -17,15 +17,19 @@ const heading = labelMonth(year, month);
 const eventsJson = JSON.stringify(events).replace(/</g, '\\u003c');
 ---
 
-<Base title="Agenda" description="Properes activitats del CMES.">
+<Base title="Calendari" description="Properes activitats del CMES.">
   <section class="band">
     <div class="wrap">
       <div class="band-head">
-        <h1>Agenda</h1>
+        <h1>Calendari</h1>
       </div>
+      <p class="agenda-disclaimer">
+        Aquest calendari és orientatiu i pot no incloure totes les activitats. La majoria d’avisos i canvis es
+        comuniquen als socis pels canals interns del club (grups de WhatsApp de cada secció).
+      </p>
 
       <div class="agenda-bar">
-        <div class="agenda-views" role="group" aria-label="Vista de l'agenda">
+        <div class="agenda-views" role="group" aria-label="Vista del calendari">
           <button type="button" id="view-cal" aria-pressed="true">Calendari</button>
           <button type="button" id="view-list" aria-pressed="false">Llista</button>
         </div>
@@ -91,7 +95,7 @@ const eventsJson = JSON.stringify(events).replace(/</g, '\\u003c');
       </div>
 
       <p class="agenda-note">
-        Consulta les <a href="/calendari/">normes de participació</a> a les activitats.
+        Com i on apuntar-se: <a href="/participacio/">Participació a ses activitats</a>.
       </p>
     </div>
   </section>

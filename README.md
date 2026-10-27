@@ -30,10 +30,11 @@ Auth env vars stay in the dashboard (Production): `GITHUB_TOKEN`, `CF_ACCESS_TEA
 | News posts, one folder each with its images (`cover.jpg` = featured image) | `content/noticies/YYYY-MM-DD-slug/index.md` |
 | Pages (URL = file name) | `content/pages/` |
 | Home intro text | `content/pages/_inici.md` |
-| Shared images and files (logo, page photos, PDF) | `public/img/` |
+| Shared images (logo, page photos) | `public/img/` |
+| PDFs (estatuts, reglament…) | `public/docs/` |
 | Site settings (email, address, IBAN, contact form URL, social links, sections) | `content/site.json` |
 | Redirects for old WordPress URLs (Cloudflare Pages) | `public/_redirects` |
-| Agenda events (page `/agenda/`, past events collapsed) | `content/events.json` |
+| Calendar events (page `/calendari/`, past events collapsed) | `content/events.json` |
 
 In `.mdx` pages, `<Site field="email" />` prints a value from `content/site.json`.
 Post categories are tags; each one has an archive page at `/noticies/{category}/`.

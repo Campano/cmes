@@ -40,5 +40,19 @@ const ogImage = new URL(image, Astro.site).href;
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      document.querySelectorAll('.prose img, .post-hero img').forEach((img) => {
+        if (img.closest('a')) return;
+        const src = img.getAttribute('src');
+        if (!src) return;
+        const a = document.createElement('a');
+        a.href = src;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = 'img-link';
+        img.replaceWith(a);
+        a.appendChild(img);
+      });
+    </script>
   </body>
 </html>

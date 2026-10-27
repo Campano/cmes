@@ -13,6 +13,7 @@ export default defineConfig({
   preview: { port: 3000, host: true },
   redirects: {
     '/club/': '/el-club/',
+    '/agenda/': '/calendari/',
     '/blog/': '/noticies/',
     '/actualitat/': '/noticies/actualitat/',
     '/barranquisme/': '/noticies/barranquisme/',

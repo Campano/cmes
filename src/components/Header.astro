@@ -11,8 +11,10 @@ const nav = [
     href: '/el-club/',
     children: [
       { label: 'Informació', href: '/el-club/' },
+      { label: 'Equip', href: '/equip/' },
       { label: 'Local social', href: '/local-social/' },
-      { label: 'Normes', href: '/calendari/' },
+      { label: 'Normes', href: '/normes/' },
+      { label: "Protocol d'accidents", href: '/protocol-accidents/' },
     ],
   },
   {
@@ -23,7 +25,14 @@ const nav = [
       ...categories.map((c) => ({ label: c.label, href: categoryPath(c.slug) })),
     ],
   },
-  { label: 'Agenda', href: '/agenda/' },
+  {
+    label: 'Activitats',
+    href: '/calendari/',
+    children: [
+      { label: 'Calendari', href: '/calendari/' },
+      { label: 'Participació', href: '/participacio/' },
+    ],
+  },
   { label: 'Contacte', href: '/contacte/' },
 ];
 const cta = { label: 'Fes-te soci', href: '/fes-te-soci/' };

@@ -27,11 +27,13 @@
 - Dins el text: botó **Imatge** de la barra d'eines.
 - Fotos de menys de 1–2 MB, en horitzontal si pot ser.
 
-## Agenda, pàgines i configuració
+## Calendari, pàgines i configuració
 
-- **Agenda**: afegeix activitats (títol, data, lloc...). Les passades s'amaguen soles.
-- **Pàgines**: textos fixos (El club, Local social...). A les pàgines amb
+- **Calendari**: afegeix activitats (títol, data, lloc...). Les passades s'amaguen soles.
+- **Participació** (Pàgines): com apuntar-se i requisits; canvia el text quan calgui.
+- **Pàgines**: textos fixos (Informació, Equip, Local social...). A les pàgines amb
   `<Site field="..." />` no esborris aquestes etiquetes: mostren dades de **Configuració**.
+  A **Equip**, les fotos van a `public/img/equip/` (substituïu el placeholder a l'MDX).
 - **Configuració**: correu, adreça, IBAN, enllaç del formulari de contacte, xarxes.
 
 ## Publicar i desfer
