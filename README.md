@@ -32,11 +32,12 @@ Auth env vars stay in the dashboard (Production): `GITHUB_TOKEN`, `CF_ACCESS_TEA
 | Home intro text | `content/pages/_inici.md` |
 | Shared images (logo, page photos) | `public/img/` |
 | PDFs (estatuts, reglament…) | `public/docs/` |
-| Site settings (email, address, IBAN, contact form URL, social links, sections) | `content/site.json` |
+| Site settings (email, address, IBAN, contact form URLs, social links, sections) | `content/site.json` |
 | Redirects for old WordPress URLs (Cloudflare Pages) | `public/_redirects` |
 | Calendar events (page `/calendari/`, past events collapsed) | `content/events.json` |
 
-In `.mdx` pages, `<Site field="email" />` prints a value from `content/site.json`.
+In `.mdx` pages, `<Site field="email" />` prints a value from `content/site.json` (Vite rewrite).
+`<Copy text="…" />` is an MDX component (`src/components/Copy.astro`) with a copy button (optional `label="…"`).
 Post categories are tags; each one has an archive page at `/noticies/{category}/`.
 A post's URL is `/noticies/{folder}/` (`permalinkOf` in `src/lib/posts.js`). List URLs
 `/blog/` and `/{category}/` redirect to `/noticies/` and `/noticies/{category}/`.
@@ -91,8 +92,6 @@ Removing an editor from the Access policy doesn't revoke a token they already lo
 (new token → update `GITHUB_TOKEN` → redeploy → delete the old one). Open CMS tabs pick up the new token on reload; with a
 revoked token and no new one, the CMS falls back to its sign-in screen with an error.
 Commits are authored by the token owner; Zero Trust → Logs → Access shows who logged in and when.
-
-TODO: replace the placeholder `contactFormUrl` in `content/site.json` with the real Google Form URL.
 
 ## CI
 

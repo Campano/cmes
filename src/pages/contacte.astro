@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { mdxComponents } from '../lib/mdx-components.js';
+import site from '../../content/site.json';
+
+const page = (await getCollection('pages')).find((p) => p.id === 'contacte');
+if (!page) throw new Error('Missing content/pages/contacte.mdx');
+const { Content } = await render(page);
+
+const formUrl = site.contactFormUrl?.trim() || '';
+const embedUrl = site.contactFormEmbedUrl?.trim() || '';
+---
+
+<Base title={page.data.title} description={page.data.description}>
+  <article class="band">
+    <div class="wrap prose">
+      <Content components={mdxComponents} />
+      {embedUrl ? (
+        <>
+          <iframe
+            class="contact-embed"
+            src={embedUrl}
+            title="Formulari de contacte CMES"
+            width="640"
+            height="720"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          />
+          {formUrl && (
+            <p class="contact-embed-fallback">
+              <a href={formUrl} target="_blank" rel="noopener noreferrer">Obre el formulari en una pestanya nova</a>
+            </p>
+          )}
+        </>
+      ) : formUrl ? (
+        <p>
+          <a class="btn btn-accent" href={formUrl} target="_blank" rel="noopener noreferrer">
+            Formulari de contacte
+          </a>
+        </p>
+      ) : null}
+    </div>
+  </article>
+</Base>

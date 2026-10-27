@@ -33,7 +33,7 @@ function rewriteSiteTags(code) {
     });
 }
 
-/** CMS <Site field="…" /> in page source → HTML before MDX/markdown parse. */
+/** CMS <Site field="…" /> → HTML before MDX/markdown parse. <Copy /> is an MDX component. */
 export function siteTagsPlugin() {
   return {
     name: 'cmes-site-tags',

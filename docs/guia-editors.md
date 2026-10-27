@@ -33,8 +33,9 @@
 - **Participació** (Pàgines): com apuntar-se i requisits; canvia el text quan calgui.
 - **Pàgines**: textos fixos (Informació, Equip, Local social...). A les pàgines amb
   `<Site field="..." />` no esborris aquestes etiquetes: mostren dades de **Configuració**.
+  `<Copy text="..." />` mostra el text (estil codi) amb un botó de porta-retalls (p. ex. l’IBAN a Fes-te soci).
   A **Equip**, les fotos van a `public/img/equip/` (substituïu el placeholder a l'MDX).
-- **Configuració**: correu, adreça, IBAN, enllaç del formulari de contacte, xarxes.
+- **Configuració**: correu, adreça, IBAN, URLs del formulari de contacte (curta i incrustada), xarxes.
 
 ## Publicar i desfer
 

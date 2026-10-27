@@ -53,6 +53,30 @@ const ogImage = new URL(image, Astro.site).href;
         img.replaceWith(a);
         a.appendChild(img);
       });
+
+      document.querySelectorAll('[data-copy]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const text = btn.getAttribute('data-copy');
+          if (!text) return;
+          const label = btn.getAttribute('aria-label') || 'Copia';
+          try {
+            await navigator.clipboard.writeText(text);
+            btn.classList.add('is-copied');
+            btn.setAttribute('aria-label', 'Copiat');
+            btn.disabled = true;
+            setTimeout(() => {
+              btn.classList.remove('is-copied');
+              btn.setAttribute('aria-label', label);
+              btn.disabled = false;
+            }, 1500);
+          } catch {
+            btn.setAttribute('aria-label', 'Error');
+            setTimeout(() => {
+              btn.setAttribute('aria-label', label);
+            }, 1500);
+          }
+        });
+      });
     </script>
   </body>
 </html>

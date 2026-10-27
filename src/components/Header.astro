@@ -1,6 +1,7 @@
 ---
 import { categories, categoryPath, newsPath } from '../lib/posts.js';
 import InstagramLink from './InstagramLink.astro';
+import RssLink from './RssLink.astro';
 
 const path = Astro.url.pathname;
 const on = (href: string) => path === href || (href !== '/' && path.startsWith(href));
@@ -13,7 +14,6 @@ const nav = [
       { label: 'Informació', href: '/el-club/' },
       { label: 'Equip', href: '/equip/' },
       { label: 'Local social', href: '/local-social/' },
-      { label: 'Normes', href: '/normes/' },
       { label: "Protocol d'accidents", href: '/protocol-accidents/' },
     ],
   },
@@ -79,7 +79,10 @@ const dropOpen = (item: { children?: { href: string }[] }) =>
         )
       )}
       <a class="nav-cta" href={cta.href} aria-current={on(cta.href) ? 'page' : undefined}>{cta.label}</a>
-      <InstagramLink class="nav-ig" />
+      <div class="nav-social">
+        <InstagramLink class="nav-icon" />
+        <RssLink class="nav-icon" />
+      </div>
     </nav>
   </div>
 </header>

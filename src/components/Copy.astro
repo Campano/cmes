@@ -1,0 +1,31 @@
+---
+const { text = '', label = 'Copia' } = Astro.props;
+---
+
+{text ? (
+  <span class="copy-inline">
+    <code class="copy-value">{text}</code>
+    <button type="button" class="copy-btn" data-copy={text} aria-label={label} title={label}>
+      <svg class="copy-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <rect x="8" y="8" width="12" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="2" />
+        <path
+          d="M4 16V5.5A1.5 1.5 0 0 1 5.5 4H16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+      <svg class="copy-check" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path
+          d="M5 12.5 10 17.5 19 7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+  </span>
+) : null}

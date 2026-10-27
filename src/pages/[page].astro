@@ -1,11 +1,12 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import { mdxComponents } from '../lib/mdx-components.js';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
   return pages
-    .filter((page) => !page.id.startsWith('_'))
+    .filter((page) => !page.id.startsWith('_') && page.id !== 'contacte')
     .map((page) => ({
       params: { page: page.id },
       props: { page },
@@ -19,7 +20,7 @@ const { Content } = await render(page);
 <Base title={page.data.title} description={page.data.description}>
   <article class="band">
     <div class="wrap prose">
-      <Content />
+      <Content components={mdxComponents} />
     </div>
   </article>
 </Base>

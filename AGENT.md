@@ -39,7 +39,7 @@ Non-technical editors → CMS commits straight to main (D19), login via Cloudfla
 | D18 | CMS: switch Decap → Sveltia CMS (PR #1, sveltia branch) after a real GitHub login test on pages.dev | proposed |
 | D19 | CMS publishes directly to main (no editorial workflow / PRs); safety = CI + CF keeps last good deploy + git revert | approved |
 | D20 | Editor login: Cloudflare Access (email one-time code) on /admin + /api; function hands CMS a fine-grained repo PAT (bot) after verifying the Access JWT. Replaces GitHub OAuth app (supersedes D5) | approved |
-| D16 | contactFormUrl placeholder OK for now; old /wp-content/uploads links may break | approved |
+| D16 | Contact: embedded Google Form; old /wp-content/uploads links may break | approved |
 | D17 | Legal pages rewritten for the new stack (086852c); CEO/lawyer to review FBME, Google entity, retention | done |
 | D19 | CMS publishes directly to main (no editorial_workflow); safety nets: CI, CF keeps last good deploy, git revert | approved |
 | D20 | Editor login without GitHub: Cloudflare Access (OTP email) on /admin + /api; `functions/api/auth.js` verifies the Access JWT and hands over a fine-grained PAT (supersedes D5 OAuth) | approved |
@@ -65,7 +65,6 @@ RISK: MX is on the same shared host as the current website — recreate mail rec
 - Contact: Google Form link (D10). Analytics: CF Web Analytics at deploy (D11).
 
 ## Open before launch
-- `contactFormUrl` in `content/site.json` is still `https://forms.gle/TODO-contact-form`.
 - `content/events.json` is six `[PROVA]` sample events. Clear them before the agenda goes live.
 - Address: legal pages say "Carrer de Xaloc, s/n"; `site.json` says "27" (Q1, pending CEO).
 

@@ -1,6 +1,7 @@
 ---
 import site from '../../content/site.json';
 import InstagramLink from './InstagramLink.astro';
+import RssLink from './RssLink.astro';
 
 const year = new Date().getFullYear();
 ---
@@ -26,7 +27,8 @@ const year = new Date().getFullYear();
     </div>
     <div>
       <div class="footer-social">
-        <InstagramLink class="footer-ig" />
+        <InstagramLink class="footer-icon" />
+        <RssLink class="footer-icon" />
       </div>
       <ul class="footer-legal">
         <li><a href="/avis-legal/">Avís legal</a></li>
