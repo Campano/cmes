@@ -64,6 +64,7 @@ collections:
           - {label: Títol, name: title, widget: string}
           - {label: Descripció, name: description, widget: string, required: false}
           - {label: Text, name: body, widget: markdown}
+      - {label: "Escola d'escalada", name: escola-escalada, file: content/pages/escola-escalada.md, fields: *md}
       - {label: "Protocol d'accidents", name: protocol-accidents, file: content/pages/protocol-accidents.md, fields: *md}
       - {label: Participació, name: participacio, file: content/pages/participacio.md, fields: *md}
       # .mdx pages: raw markdown only, so <Site field="…" /> tags stay intact.
