@@ -46,7 +46,9 @@ const Content = rendered?.Content;
   <Base
     title={post.data.title}
     description={post.data.description || post.data.title}
-    image={post.imageUrl}
+    image={post.imageUrl || '/img/club.jpg'}
+    type="article"
+    publishedTime={new Date(post.data.date).toISOString()}
   >
     {post.imageUrl && (
       <div class="post-hero">
