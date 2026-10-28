@@ -5,19 +5,40 @@
   "contactFormUrl": "https://forms.gle/q4KQhqWNu9bS6eGw7",
   "contactFormEmbedUrl": "https://docs.google.com/forms/d/e/1FAIpQLScdPmq78tsssuHHpp-GssZMCdBXhdpPSnygAMsaTyFgigvhgw/viewform?embedded=true",
   "calendarEmbedUrl": "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FMadrid&showCalendars=0&showTz=0&mode=MONTH&src=ZmQ4MTE4ODQ5NGFkNjljNGZhYjVmM2I4OGU3YTA4MWQ2NDhkMDVhNjFjMWE3NDdmNGQ2NTkyNTAyZGNjYTUxY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23ad1457",
-  "address": "Carrer de Xaloc, 27, 07108 Port de Sóller",
+  "address": "Carrer de Xaloc, s/n, 07108 Port de Sóller",
   "nif": "G-57481228",
   "bank": "Banc de Santander",
   "iban": "ES26 0049 0176 2623 1024 6693",
   "social": [
-    { "label": "Facebook", "href": "https://www.facebook.com/Club-Muntanya-Escalada-S%C3%B3ller-1904849869777193" },
-    { "label": "Twitter", "href": "https://twitter.com/cmes_soller" },
-    { "label": "Instagram", "href": "https://www.instagram.com/cmes_soller/" }
+    {
+      "label": "Facebook",
+      "href": "https://www.facebook.com/Club-Muntanya-Escalada-S%C3%B3ller-1904849869777193"
+    },
+    {
+      "label": "Twitter",
+      "href": "https://twitter.com/cmes_soller"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/cmes_soller/"
+    }
   ],
   "sections": [
-    { "label": "Barranquisme", "to": "/noticies/barranquisme/" },
-    { "label": "Curses per muntanya", "to": "/noticies/curses-per-muntanya/" },
-    { "label": "Escalada", "to": "/noticies/escalada/" },
-    { "label": "Senderisme", "to": "/noticies/senderisme/" }
+    {
+      "label": "Barranquisme",
+      "to": "/noticies/barranquisme/"
+    },
+    {
+      "label": "Curses per muntanya",
+      "to": "/noticies/curses-per-muntanya/"
+    },
+    {
+      "label": "Escalada",
+      "to": "/noticies/escalada/"
+    },
+    {
+      "label": "Senderisme",
+      "to": "/noticies/senderisme/"
+    }
   ]
 }
