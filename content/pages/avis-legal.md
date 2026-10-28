@@ -8,14 +8,7 @@ _Última actualización: 20 de octubre de 2026._
 
 ## Titular del sitio web
 
-En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de este sitio web:
-
--   **Titular:** Club de Muntanya i Escalada Sóller (en adelante, «el Club»).
--   **NIF:** G-57481228
--   **Registre d'entitats esportives de les Illes Balears:** DC-2175.
--   **Domicilio:** Carrer de Xaloc, s/n, 07108 Port de Sóller, Baleares – España.
--   **Correo electrónico:** cmesoller@gmail.com
--   **Sitio web:** [https://cmesoller.com/](/)
+En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de este sitio web: ver [los datos del club](/el-club)
 
 ## Finalidad
 
