@@ -10,11 +10,7 @@ Esta política explica cómo trata el Club los datos personales de las personas 
 
 ## Responsable del tratamiento
 
--   **Responsable:** Club de Muntanya i Escalada Sóller.
--   **NIF:** G-57481228
--   **Registre d'entitats esportives de les Illes Balears:** DC-2175.
--   **Domicilio:** Carrer de Xaloc, s/n, 07108 Port de Sóller, Baleares – España.
--   **Correo electrónico:** cmesoller@gmail.com
+Ver [datos del club](https://cmes-rmp.pages.dev/el-club/#dades-del-club)
 
 ## Navegación por el sitio web
 
