@@ -1,0 +1,36 @@
+---
+title: "La secció de Curses ha realitzat avui la primera sortida de l'any per l'entorn de Raixa"
+date: 2025-01-26T17:08:55
+tags: [Actualitat]
+image: ./cover.jpg
+description: "La secció de Curses ha realitzat avui la primera sortida de l'any per l'entorn de Raixa, Pastoritx i Sa Gubia."
+---
+La secció de Curses ha realitzat avui la primera sortida de l'any per l'entorn de Raixa, Pastoritx i Sa Gubia.
+
+![](./02.jpg)
+
+![](./03.jpg)
+
+![](./04.jpg)
+
+![](./05.jpg)
+
+![](./06.jpg)
+
+![](./07.jpg)
+
+![](./08.jpg)
+
+![](./09.jpg)
+
+![](./10.jpg)
+
+![](./11.jpg)
+
+![](./12.jpg)
+
+![](./13.jpg)
+
+![](./14.jpg)
+
+![](./15.jpg)
