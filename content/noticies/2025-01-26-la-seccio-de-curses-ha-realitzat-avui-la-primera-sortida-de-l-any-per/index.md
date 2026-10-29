@@ -1,7 +1,7 @@
 ---
 title: "La secció de Curses ha realitzat avui la primera sortida de l'any per l'entorn de Raixa"
 date: 2025-01-26T17:08:55
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "La secció de Curses ha realitzat avui la primera sortida de l'any per l'entorn de Raixa, Pastoritx i Sa Gubia."
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Dos podis a la Cronoescalada Cas Secretari disputada dissabte capvespre a Alaró."
 date: 2025-06-30T09:01:15
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Dos podis a la Cronoescalada Cas Secretari disputada dissabte capvespre a Alaró. Dani Vidal va ser el primer classificat en la categoria Promesa Masculina i Josep Lluís Gómez el"
 ---

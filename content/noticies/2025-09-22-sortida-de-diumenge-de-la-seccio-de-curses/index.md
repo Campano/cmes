@@ -1,7 +1,7 @@
 ---
 title: "Sortida de diumenge de la secció de Curses"
 date: 2025-09-22T17:20:27
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Sortida de diumenge de la secció de Curses"
 ---

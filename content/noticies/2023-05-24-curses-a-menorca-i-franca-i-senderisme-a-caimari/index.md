@@ -2,7 +2,7 @@
 title: "Curses a Menorca i França, i senderisme a Caimari"
 date: 2023-05-24T22:31:43
 slug: /curses-per-muntanya/curses-a-menorca-i-franca-i-senderisme-a-caimari
-tags: [Curses per muntanya, Senderisme]
+tags: [Club, Curses per muntanya, Senderisme]
 image: ./cover.jpg
 description: "Cap de setmana de plena activitat per als esportistes del CMES que han participat a competicions a França i a Menorca, o per aquells que han optat per"
 ---

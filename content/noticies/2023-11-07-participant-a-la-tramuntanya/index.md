@@ -2,7 +2,7 @@
 title: "Participant a la Tramuntanya"
 date: 2023-11-07T15:17:58
 slug: /curses-per-muntanya/participant-a-la-tramuntanya
-tags: [Curses per muntanya, Senderisme]
+tags: [Club, Curses per muntanya, Senderisme]
 image: ./cover.jpg
 description: "Nombrosos corredors del nostre club han participat a la primera edició de la Tramuntanya, una cursa de nova creació que dissabte es va estrenar pels"
 ---

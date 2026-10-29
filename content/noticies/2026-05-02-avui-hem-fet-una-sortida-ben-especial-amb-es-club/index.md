@@ -1,7 +1,7 @@
 ---
 title: "Avui hem fet una sortida ben especial amb es club"
 date: 2026-05-02T16:45:27
-tags: [Actualitat]
+tags: [Club, Senderisme]
 image: ./cover.jpg
 description: "Avui hem fet una sortida ben especial amb es club, amb ganes d’aprendre un poquet més sobre es món fascinant de sa fotografia macro. Hem estat explorant un racó únic de Mallorca"
 ---

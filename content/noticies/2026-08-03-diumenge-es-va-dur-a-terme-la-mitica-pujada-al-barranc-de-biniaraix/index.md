@@ -1,7 +1,7 @@
 ---
 title: "Diumenge es va dur a terme la mítica Pujada al Barranc de Biniaraix"
 date: 2026-08-03T13:24:39
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Diumenge es va dur a terme la mítica Pujada al Barranc de Biniaraix El repte de 5,5 km amb 791 metres de desnivell"
 ---

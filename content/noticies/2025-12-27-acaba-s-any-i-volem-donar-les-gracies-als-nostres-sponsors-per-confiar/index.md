@@ -1,7 +1,7 @@
 ---
 title: "Acaba s’any i volem donar les gràcies als nostres sponsors per confiar"
 date: 2025-12-27T18:34:14
-tags: [Actualitat]
+tags: [Club]
 image: ./cover.jpg
 description: "Acaba s’any i volem donar les gràcies als nostres sponsors per confiar amb nosaltres i fer possible totes les activitats d’aquesta temporada Gràcies per formar part del club i"
 ---

@@ -2,7 +2,7 @@
 title: "Dies d’intensa activitat"
 date: 2022-07-05T07:37:33
 slug: /curses-per-muntanya/dies-dintensa-activitat
-tags: [Curses per muntanya, Senderisme]
+tags: [Club, Curses per muntanya, Senderisme]
 image: ./cover.jpg
 description: "Cap de setmana d'intensa activitat per als socis del nostre club que han sortit a recórrer diferents indrets de la nostra Serra de Tramuntana. La secció"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "La secció de Curses ha organitzat avui diumenge una sortida fins a la torre de Na Seca."
 date: 2024-05-19T21:15:53
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "La secció de Curses ha organitzat avui diumenge una sortida fins a la torre de Na Seca."
 ---

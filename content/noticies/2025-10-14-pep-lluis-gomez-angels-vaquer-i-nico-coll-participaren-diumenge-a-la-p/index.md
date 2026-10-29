@@ -1,7 +1,7 @@
 ---
 title: "Pep Lluís Gómez, Àngels Vaquer i Nico Coll participaren diumenge a la Pujada al Castell d'Alaró"
 date: 2025-10-14T06:52:00
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Pep Lluís Gómez, Àngels Vaquer i Nico Coll participaren diumenge a la Pujada al Castell d'Alaró. Els tres gaudiren del recorregut d'aquesta clàssica que es disputa cada mes"
 ---

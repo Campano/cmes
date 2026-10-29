@@ -1,7 +1,7 @@
 ---
 title: "Avui hem estat presents a la FelanitXtrem"
 date: 2025-02-16T18:44:39
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Avui hem estat presents a la FelanitXtrem. A la prova clàssica, de 12 quilòmetres de recorregut, Xim Borràs s'ha situat a la setena posició de la classificació general, mentre que"
 ---

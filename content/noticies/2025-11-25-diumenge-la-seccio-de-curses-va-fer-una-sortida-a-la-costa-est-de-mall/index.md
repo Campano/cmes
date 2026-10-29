@@ -1,7 +1,7 @@
 ---
 title: "Diumenge la secció de curses va fer una sortida a la costa est de Mallorca"
 date: 2025-11-25T16:56:21
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Diumenge la secció de curses va fer una sortida a la costa est de Mallorca, un recorregut circular de 11 km amb vistes espectaculars, passant per cala Llombards, es caló des Moro"
 ---

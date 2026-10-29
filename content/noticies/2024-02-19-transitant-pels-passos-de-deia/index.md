@@ -2,7 +2,7 @@
 title: "Transitant pels passos de Deià"
 date: 2024-02-19T22:14:53
 slug: /senderisme/transitant-pels-passos-de-deia
-tags: [Senderisme, Curses per muntanya]
+tags: [Club, Senderisme, Curses per muntanya]
 image: ./cover.jpg
 description: "Un altre cap de setmana ple d'activitat per als socis del CMES. En aquesta ocasió, l'activitat es va centrar durant la jornada de diumenge, amb sortides"
 ---

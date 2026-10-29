@@ -11,7 +11,7 @@ export function categoryPath(slug) {
 }
 
 export const categories = [
-  { label: 'Actualitat', slug: 'actualitat' },
+  { label: 'Club', slug: 'club' },
   ...site.sections.map((s) => ({
     label: s.label,
     slug: String(s.to).replace(/^\/|\/$/g, '').split('/').pop(),

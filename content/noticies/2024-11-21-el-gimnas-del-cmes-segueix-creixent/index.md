@@ -1,7 +1,7 @@
 ---
 title: "El gimnàs del CMES segueix creixent"
 date: 2024-11-21T20:33:08
-tags: [Actualitat]
+tags: [Club]
 image: ./cover.jpg
 description: "El gimnàs del CMES segueix creixent. Aquests dies, els nostres socis han pogut estrenar la nova màquina multifuncional que ha adquirit el club. Aquest nou aparell es suma a les"
 ---

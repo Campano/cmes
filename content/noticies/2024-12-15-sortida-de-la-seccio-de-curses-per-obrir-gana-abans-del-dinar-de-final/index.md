@@ -1,7 +1,7 @@
 ---
 title: "Sortida de la secció de Curses per obrir gana abans del dinar de final de curs del CMES"
 date: 2024-12-15T12:37:55
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Sortida de la secció de Curses per obrir gana abans del dinar de final de curs del CMES"
 ---

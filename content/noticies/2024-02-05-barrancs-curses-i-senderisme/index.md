@@ -2,7 +2,7 @@
 title: "Barrancs, curses i senderisme"
 date: 2024-02-05T22:38:47
 slug: /barranquisme/barrancs-curses-i-senderisme
-tags: [Barranquisme, Curses per muntanya, Senderisme]
+tags: [Club, Barranquisme, Curses per muntanya, Senderisme]
 image: ./cover.jpg
 description: "El primer cap de setmana del mes de febrer ha arribat carregat d'activitat per al CMES. Activitats de barranquisme, curses i una nova sortida de"
 ---

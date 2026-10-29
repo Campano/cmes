@@ -1,7 +1,7 @@
 ---
 title: "Des del Nepal ens arriben bones notícies"
 date: 2024-10-18T19:34:05
-tags: [Actualitat]
+tags: [Senderisme]
 image: ./cover.jpg
 description: "Des del Nepal ens arriben bones notícies: Fabiana Peña ha aconseguit fer cim al Mera Peak (6.476 metres) durant el trekking que està realitzant pel país asiàtic."
 ---

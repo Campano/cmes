@@ -1,8 +1,8 @@
 ---
 title: "Tomeu Muntaner, nou president del CMES"
 date: 2022-11-14T12:51:45
-slug: /actualitat/tomeu-muntaner-nou-president-del-cmes
-tags: [Actualitat]
+slug: /club/tomeu-muntaner-nou-president-del-cmes
+tags: [Club]
 image: ./cover.jpg
 description: "Tomeu Muntaner va ser proclamat divendres passat nou president del CMES en substitució de Tomeu Colom. Fou en el transcurs de l'Assemblea Extraordinària"
 ---

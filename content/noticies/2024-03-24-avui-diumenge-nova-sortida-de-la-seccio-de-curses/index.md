@@ -1,7 +1,7 @@
 ---
 title: "Avui diumenge, nova sortida de la secció de Curses"
 date: 2024-03-24T18:13:47
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Avui diumenge, nova sortida de la secció de Curses. En aquesta ocasió, a través de camins poc habituals de l'entorn de la nostra vall. Hem comptat amb la presència de diversos"
 ---

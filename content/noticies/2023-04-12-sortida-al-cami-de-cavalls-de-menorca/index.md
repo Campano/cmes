@@ -2,7 +2,7 @@
 title: "Sortida al Camí de Cavalls de Menorca"
 date: 2023-04-12T18:36:19
 slug: /senderisme/sortida-al-cami-de-cavalls-de-menorca
-tags: [Senderisme, Curses per muntanya, Escalada]
+tags: [Club, Senderisme, Curses per muntanya, Escalada]
 image: ./cover.jpg
 description: "Cap de setmana de molta activitat per a les seccions del club. Les vacances de Setmana Santa no han estat impediment per sortir a la muntanya a practicar"
 ---

@@ -2,7 +2,7 @@
 title: "Escalada, Curses i Senderisme"
 date: 2023-02-21T10:14:39
 slug: /senderisme/escalada-curses-i-senderisme
-tags: [Senderisme, Curses per muntanya, Escalada]
+tags: [Club, Senderisme, Curses per muntanya, Escalada]
 image: ./cover.jpg
 description: "Cap de setmana de molta activitat per a les seccions esportives del CMES. Escalada a Sa Gubia, sortida d'entrenament de la secció de Curses per"
 ---

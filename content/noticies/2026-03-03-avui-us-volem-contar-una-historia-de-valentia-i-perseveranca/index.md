@@ -1,7 +1,7 @@
 ---
 title: "Avui us volem contar una història de valentia i perseverança"
 date: 2026-03-03T13:53:41
-tags: [Actualitat]
+tags: [Senderisme]
 image: ./cover.jpg
 description: "Avui us volem contar una història de valentia i perseverança La nostra integrant @fabipena_1971 ho ha tornat a intentar per segon any consecutiu: pujar al majestuós Aconcagua"
 ---

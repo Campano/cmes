@@ -1,7 +1,7 @@
 ---
 title: "Avui us ensenyam un parell de fotografíes d’un grup de socis"
 date: 2026-05-28T09:48:48
-tags: [Actualitat]
+tags: [Escalada]
 image: ./cover.jpg
 description: "Avui us ensenyam un parell de fotografíes d’un grup de socis que han anat a Montrebei i Tarradets a fer rutes ferratas Han estat també a Collegats, Vall Fosca i Roca Regina."
 ---

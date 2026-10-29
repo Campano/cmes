@@ -1,7 +1,7 @@
 ---
 title: "La nostra sòcia Fabiana Peña ha recorregut part de la cordillera Blanca, a Perú."
 date: 2025-06-05T22:14:24
-tags: [Actualitat]
+tags: [Senderisme]
 image: ./cover.jpg
 description: "La nostra sòcia Fabiana Peña ha recorregut part de la cordillera Blanca, a Perú. Cima Nevado Mateo (5.150 metres), Urus (5.495 metres), Ishinca (5.530 metres) i Cima del Pisco"
 ---

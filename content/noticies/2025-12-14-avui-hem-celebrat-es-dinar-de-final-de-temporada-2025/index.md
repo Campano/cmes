@@ -1,7 +1,7 @@
 ---
 title: "Avui hem celebrat es dinar de final de temporada 2025!"
 date: 2025-12-14T19:46:03
-tags: [Actualitat]
+tags: [Club]
 image: ./cover.jpg
 description: "Avui hem celebrat es dinar de final de temporada 2025! En Vilero mos ha fet una paella espectacular"
 ---

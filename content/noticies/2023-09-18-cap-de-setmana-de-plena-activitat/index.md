@@ -2,7 +2,7 @@
 title: "Cap de setmana de plena activitat"
 date: 2023-09-18T11:25:24
 slug: /curses-per-muntanya/cap-de-setmana-de-plena-activitat
-tags: [Curses per muntanya, Senderisme]
+tags: [Club, Curses per muntanya, Senderisme]
 image: ./cover.jpg
 description: "Cap de setmana de plena activitat el que hem viscut aquests darrers dies en el nostre club. Dissabte, s'Arracó va ser l'escenari d'una nova edició de la"
 ---

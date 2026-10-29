@@ -2,7 +2,7 @@
 title: "La més clàssica de l’estiu"
 date: 2022-07-18T16:51:34
 slug: /senderisme/la-mes-classica-de-lestiu
-tags: [Senderisme, Curses per muntanya]
+tags: [Club, Senderisme, Curses per muntanya]
 image: ./cover.jpg
 description: "La secció de Senderisme ha complit aquest cap de setmana amb una de les tradicions estivals del nostre club. Un any més s'ha organitzat la baixada al"
 ---

@@ -2,7 +2,7 @@
 title: "Un llarg cap de setmana que va començar dijous"
 date: 2023-09-25T11:54:47
 slug: /barranquisme/un-llarg-cap-de-setmana-que-va-comencar-dijous
-tags: [Barranquisme, Curses per muntanya, Escalada]
+tags: [Club, Barranquisme, Curses per muntanya, Escalada]
 image: ./cover.jpg
 description: "Dijous es va disputar la Cursa Rural Intervinyes. Aquest clàssica cursa que es duu a terme cada any a les bodegues José Luis Ferrer de Binissalem no va"
 ---

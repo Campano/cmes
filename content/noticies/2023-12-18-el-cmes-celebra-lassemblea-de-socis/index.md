@@ -1,8 +1,8 @@
 ---
 title: "El CMES celebra l’assemblea de socis"
 date: 2023-12-18T07:26:28
-slug: /actualitat/el-cmes-celebra-lassemblea-de-socis
-tags: [Actualitat]
+slug: /club/el-cmes-celebra-lassemblea-de-socis
+tags: [Club]
 image: ./cover.jpg
 description: "El Club de Muntanya i Escalada Sóller (CMES) va celebrar dijous passat la seva assemblea ordinària de socis de 2023. En el marc del teatre del C.P."
 ---

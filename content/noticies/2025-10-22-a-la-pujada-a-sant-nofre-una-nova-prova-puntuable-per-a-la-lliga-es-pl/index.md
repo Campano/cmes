@@ -1,7 +1,7 @@
 ---
 title: "A la Pujada a Sant Nofre, una nova prova puntuable per a la lliga Es Pla no és Pla"
 date: 2025-10-22T08:50:08
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "A la Pujada a Sant Nofre, una nova prova puntuable per a la lliga Es Pla no és Pla, en Xim Borràs va obtenir la tercera posició de la general a la prova de 13 quilòmetres. Ho va"
 ---

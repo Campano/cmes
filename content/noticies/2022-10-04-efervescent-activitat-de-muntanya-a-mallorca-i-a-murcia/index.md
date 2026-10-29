@@ -2,7 +2,7 @@
 title: "Efervescent activitat de muntanya a Mallorca i a Múrcia"
 date: 2022-10-04T17:01:51
 slug: /senderisme/efervescent-activitat-de-muntanya-a-mallorca-i-a-murcia
-tags: [Senderisme, Curses per muntanya]
+tags: [Club, Senderisme, Curses per muntanya]
 image: ./cover.jpg
 description: "Nombrosos punts d'interès per als socis del CMES durant el passat cap de setmana amb una nova sortida de senderisme pels racons de la Serra de Tramuntana"
 ---

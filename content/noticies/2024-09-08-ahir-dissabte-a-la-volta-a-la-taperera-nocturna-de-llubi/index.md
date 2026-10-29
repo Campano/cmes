@@ -1,7 +1,7 @@
 ---
 title: "Ahir dissabte, a la Volta a la Taperera Nocturna de Llubí"
 date: 2024-09-08T20:19:45
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Ahir dissabte, a la Volta a la Taperera Nocturna de Llubí, Xim Borràs es va classificar a la tercera posició de la prova 12 quilòmetres. Ho va aconseguir completant el recorregut"
 ---

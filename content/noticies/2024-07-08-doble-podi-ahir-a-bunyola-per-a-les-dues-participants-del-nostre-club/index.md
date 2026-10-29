@@ -1,7 +1,7 @@
 ---
 title: "Doble podi ahir a Bunyola per a les dues participants del nostre club"
 date: 2024-07-08T21:07:55
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Doble podi ahir a Bunyola per a les dues participants del nostre club que disputaren la Cronoescalada a Sa Comuna. Bàrbara Matt va ser la primera classificada en la categoria F60"
 ---

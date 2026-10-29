@@ -1,7 +1,7 @@
 ---
 title: "Aventura, natura i bona companyia"
 date: 2026-04-23T10:36:19
-tags: [Actualitat]
+tags: [Escalada]
 image: ./cover.jpg
 description: "Aventura, natura i bona companyia Un grup de socis del club van gaudir d’una experiència brutal fent la Via Ferrata de la Mocha, a Jaén."
 ---

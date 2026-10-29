@@ -1,7 +1,7 @@
 ---
 title: "Diumenge passat va tenir lloc la CxM Lloseta Xtrem."
 date: 2026-02-11T21:15:18
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Diumenge passat va tenir lloc la CxM Lloseta Xtrem. El CMES ha tingut representació en les dues distàncies (17km i 32km)."
 ---

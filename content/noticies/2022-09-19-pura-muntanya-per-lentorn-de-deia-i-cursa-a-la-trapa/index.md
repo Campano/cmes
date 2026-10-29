@@ -2,7 +2,7 @@
 title: "Pura muntanya per l’entorn de Deià i cursa a La Trapa"
 date: 2022-09-19T22:41:52
 slug: /senderisme/pura-muntanya-per-lentorn-de-deia-i-cursa-a-la-trapa
-tags: [Senderisme, Curses per muntanya]
+tags: [Club, Senderisme, Curses per muntanya]
 image: ./cover.jpg
 description: "La secció de Senderisme ha completat la segona sortida del mes de setembre, i també la segona posterior a la tradicional aturada estival. En aquesta"
 ---

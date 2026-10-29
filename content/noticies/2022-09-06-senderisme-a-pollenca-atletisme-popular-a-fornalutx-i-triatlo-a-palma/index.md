@@ -2,7 +2,7 @@
 title: "Senderisme a Pollença, atletisme popular a Fornalutx i triatló a Palma"
 date: 2022-09-06T16:09:35
 slug: /senderisme/senderisme-a-pollenca-atletisme-popular-a-fornalutx-i-triatlo-a-palma
-tags: [Senderisme, Curses per muntanya]
+tags: [Club, Senderisme, Curses per muntanya]
 image: ./cover.jpg
 description: "L'activitat esportiva del cap de setmana s'ha repartit en àmbits molt diferents per als representants del CMES que hi han participat. La secció de"
 ---

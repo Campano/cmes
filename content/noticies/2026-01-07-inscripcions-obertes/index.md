@@ -1,7 +1,7 @@
 ---
 title: "INSCRIPCIONS OBERTES!!"
 date: 2026-01-07T17:16:14
-tags: [Senderisme, Escalada, Barranquisme]
+tags: [Club]
 image: ./cover.jpg
 description: "INSCRIPCIONS OBERTES!! El CMES (club d’esports de muntanya i escalada de Sóller) es va formar amb l’objectiu de què tothom pugui practicar esport acompanyat d’altra gent que vol"
 ---

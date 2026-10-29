@@ -1,11 +1,10 @@
 ---
 title: Cap de setmana de fi de curs
 date: 2023-12-19T07:29:17
-tags:
-  - Actualitat
+tags: [Club]
 image: ./cover.jpg
 description: El cap de setmana ha estat marcat pel final de curs que ha celebrat el club. Just abans de les festes de Nadal el CMES ha reunit els socis en el tradicional dinar que cada any es celebra per aquestes dates.
-slug: /actualitat/cap-de-setmana-de-fi-de-curs
+slug: /club/cap-de-setmana-de-fi-de-curs
 ---
 
 El cap de setmana ha estat marcat pel final de curs que ha celebrat el club. Just abans de les festes de Nadal el CMES ha reunit els socis en el tradicional dinar que cada any es celebra per aquestes dates.

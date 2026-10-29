@@ -45,7 +45,7 @@ collections:
         widget: select
         multiple: true
         min: 1
-        options: [Actualitat, Barranquisme, Curses per muntanya, Escalada, Senderisme]
+        options: [Club, Barranquisme, Curses per muntanya, Escalada, Senderisme]
         hint: L'adreça és /noticies/ més el nom de la carpeta (data-títol). La primera categoria no hi surt.
       - {label: Imatge destacada, name: image, widget: image, required: false}
       - {label: Resum, name: description, widget: text, required: false, hint: Una o dues frases per a cercadors i xarxes socials.}

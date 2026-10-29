@@ -1,7 +1,7 @@
 ---
 title: "Diumenge de sortida per l'entorn de la nostra vall."
 date: 2024-12-01T18:11:42
-tags: [Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "Diumenge de sortida per l'entorn de la nostra vall."
 ---

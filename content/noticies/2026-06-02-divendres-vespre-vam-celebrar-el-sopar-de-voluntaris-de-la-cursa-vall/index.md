@@ -1,7 +1,7 @@
 ---
 title: "Divendres vespre vam celebrar el sopar de voluntaris de la Cursa Vall de Sóller"
 date: 2026-06-02T14:06:38
-tags: [Curses per muntanya]
+tags: [Club, Curses per muntanya]
 image: ./cover.jpg
 description: "Divendres vespre vam celebrar el sopar de voluntaris de la Cursa Vall de Sóller, un petit homenatge a tota sa gent que fa possible que aquesta cursa sigui una realitat. Sense tots"
 ---

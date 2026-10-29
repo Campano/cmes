@@ -2,7 +2,7 @@
 title: "Xim Borràs guanya a Vilafranca"
 date: 2023-12-13T07:26:42
 slug: /curses-per-muntanya/xim-borras-guanya-a-vilafranca
-tags: [Curses per muntanya, Escalada]
+tags: [Club, Curses per muntanya, Escalada]
 image: ./cover.jpg
 description: "El cap de setmana esportiu es va integrar dins el llarg pont que vàrem viure des de mitjans de la setmana passada. En aquest sentit, aprofitant la jornada"
 ---

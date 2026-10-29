@@ -2,7 +2,7 @@
 title: "Presentada la Cursa Vall de Sóller 2022"
 date: 2022-04-20T11:51:03
 slug: /curses-per-muntanya/presentada-la-cursa-vall-de-soller-2022
-tags: [Curses per muntanya, Actualitat]
+tags: [Curses per muntanya]
 image: ./cover.jpg
 description: "La Cursa Vall de Sóller, la més antiga que es disputa a les Illes Balears, tornarà ser una realitataquest 2022. Després de dos anys d’absència per"
 ---

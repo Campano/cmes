@@ -1,7 +1,7 @@
 ---
 title: "Volem donar l’enhorabona a Andrea Roures, que ha fet un magnífic 3r lloc, i a Andreu López"
 date: 2025-10-11T21:00:46
-tags: [Escalada, Curses per muntanya]
+tags: [Escalada]
 image: ./cover.jpg
 description: "Volem donar l’enhorabona a Andrea Roures, que ha fet un magnífic 3r lloc, i a Andreu López, que ha aconseguit una fantàstica 8a posició a la 1a prova de la Copa Balear d’Escalada"
 ---

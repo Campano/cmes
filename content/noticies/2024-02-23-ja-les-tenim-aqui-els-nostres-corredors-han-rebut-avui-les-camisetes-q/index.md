@@ -1,7 +1,7 @@
 ---
 title: "Ja les tenim aquí! Els nostres corredors han rebut avui les camisetes que lluiran aquesta temporada."
 date: 2024-02-23T21:53:49
-tags: [Curses per muntanya]
+tags: [Club]
 image: ./cover.jpg
 description: "Ja les tenim aquí! Els nostres corredors han rebut avui les camisetes que lluiran aquesta temporada. Moltes gràcies als patrocinadors que han confiat en el nostre projecte!"
 ---

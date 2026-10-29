@@ -1,8 +1,8 @@
 ---
 title: "Punt i final al curs 2022"
 date: 2022-12-19T12:58:01
-slug: /actualitat/punt-i-final-al-curs-2022
-tags: [Actualitat, Curses per muntanya, Escalada, Senderisme]
+slug: /club/punt-i-final-al-curs-2022
+tags: [Club, Curses per muntanya, Escalada, Senderisme]
 image: ./cover.jpg
 description: "El Club de Muntanya i Escalada Sóller (CMES) ha tancat el curs 2022 amb un cap de setmana carregat d'activitats. Divendres es va celebrar l'assemblea"
 ---
