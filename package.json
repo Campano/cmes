@@ -16,11 +16,11 @@
     "node": ">=20.0"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^7.3.4",
-    "@astrojs/mdx": "^8.1.1",
+    "@astrojs/markdown-remark": "^7.3.5",
+    "@astrojs/mdx": "^8.1.2",
     "@fontsource-variable/source-sans-3": "^5.3.1",
     "@fontsource-variable/syne": "^5.3.0",
-    "astro": "^7.4.2"
+    "astro": "^7.4.4"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
